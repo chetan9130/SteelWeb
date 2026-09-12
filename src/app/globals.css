@@ -1,33 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-charcoal: #111315;
-  --color-graphite: #1E293B;
-  --color-slate-cool: #F1F5F9;
-  --color-slate-border: #E2E8F0;
-  --color-warm-white: #FAF8F5;
-  --color-warm-cream: #F3EFE6;
-  --color-warm-surface: #FFFFFF;
-  --color-sand: #B8A37E;
-  --color-sand-light: #EFE8DC;
-  --color-copper: #C8753D;
-  --color-copper-hover: #BA642C;
-  --color-muted-gray: #64748B;
-  --color-border-light: #E5E0D4;
-  --color-border-subtle: #EDE8DF;
+  --color-brand-darkgreen: #17352A;
+  --color-brand-darkgreen-secondary: #234A3A;
+  --color-brand-red: #B82025;
+  --color-brand-darkred: #8F171C;
+  --color-brand-cream: #F7F4EC;
+  --color-brand-white: #FFFFFF;
+  --color-brand-darktext: #1D2521;
+  --color-brand-mutedtext: #6B716D;
+
+  --color-charcoal: #17352A;
+  --color-graphite: #234A3A;
+  --color-copper: #B82025;
+  --color-copper-hover: #8F171C;
 
   --font-display: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 }
 
 :root {
-  --background: #FAF8F5;
-  --foreground: #111315;
-  --card: #FFFFFF;
-  --card-border: #E5E0D4;
-  --copper: #C8753D;
-  --sand: #B8A37E;
-  --muted: #64748B;
+  --background: #FFFFFF;
+  --foreground: #1D2521;
+  --primary-green: #17352A;
+  --secondary-green: #234A3A;
+  --accent-red: #B82025;
+  --dark-red: #8F171C;
+  --cream: #F7F4EC;
+  --muted: #6B716D;
 }
 
 html {
@@ -36,8 +36,8 @@ html {
 }
 
 body {
-  background-color: #FAF8F5;
-  color: #111315;
+  background-color: #FFFFFF;
+  color: #1D2521;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
 }
@@ -48,38 +48,34 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* Custom Scrollbar - Light Theme */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF8F5;
+  background: #F7F4EC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D5CEBE;
+  background: #234A3A;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C8753D;
+  background: #B82025;
 }
 
 /* Selection */
 ::selection {
-  background: #C8753D;
+  background: #B82025;
   color: #FFFFFF;
 }
 
-/* Subtle architectural grid pattern utility for Light Theme */
+/* Subtle architectural grid pattern */
 .bg-architectural-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-}
-
-.text-copper-glow {
-  text-shadow: 0 0 20px rgba(200, 117, 61, 0.25);
+    linear-gradient(to right, rgba(23, 53, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 53, 42, 0.05) 1px, transparent 1px);
 }

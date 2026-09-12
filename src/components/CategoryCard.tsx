@@ -1,57 +1,55 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface CategoryCardProps {
   id: string;
   title: string;
   tagline: string;
   image: string;
-  count: number;
+  count?: number;
+  href?: string;
 }
 
-export default function CategoryCard({ id, title, tagline, image, count }: CategoryCardProps) {
+export default function CategoryCard({ id, title, tagline, image, href }: CategoryCardProps) {
+  const targetHref = href || `/models?category=${encodeURIComponent(id)}`;
+
   return (
-    <Link
-      href={`/models?category=${encodeURIComponent(id)}`}
-      className="group relative h-[380px] sm:h-[440px] rounded-sm overflow-hidden flex flex-col justify-end p-6 sm:p-8 border border-[#E5E0D4] hover:border-[#C8753D] transition-all duration-500 shadow-md hover:shadow-xl"
-    >
-      {/* Background Image */}
-      <Image
-        src={image}
-        alt={title}
-        fill
-        sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-85 group-hover:brightness-95"
-      />
-
-      {/* Atmospheric Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
-      <div className="absolute inset-0 bg-[#C8753D]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-      {/* Top Floating Badge */}
-      <div className="absolute top-6 left-6 flex items-center justify-between w-[calc(100%-3rem)]">
-        <span className="text-[10px] uppercase font-bold tracking-[0.2em] px-2.5 py-1 bg-white/90 backdrop-blur-md border border-[#E5E0D4] text-[#111315] rounded-xs shadow-xs">
-          {count} Models Available
-        </span>
-        <div className="w-10 h-10 rounded-full bg-white/90 border border-[#E5E0D4] group-hover:border-[#C8753D] group-hover:bg-[#C8753D] text-[#111315] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-md">
-          <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:rotate-45" />
-        </div>
+    <div className="group relative bg-white border border-[#E5E0D4] rounded-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#17352A]">
+      {/* Large Image Container */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F7F4EC]">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 space-y-2 transform transition-transform duration-300 group-hover:-translate-y-1">
-        <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-white group-hover:text-[#F3EFE6] transition-colors font-display">
-          {title}
-        </h3>
-        <p className="text-xs sm:text-sm text-white/80 group-hover:text-white leading-relaxed max-w-md transition-colors font-body">
-          {tagline}
-        </p>
-        <div className="pt-2 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C8753D] group-hover:text-[#D8C7A3]">
-          <span>Explore Series</span>
-          <span className="w-4 h-px bg-[#C8753D]"></span>
+      {/* Card Content */}
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between text-left space-y-3 bg-white">
+        <div>
+          <h3 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-[#1D2521] group-hover:text-[#B82025] transition-colors font-display">
+            {title}
+          </h3>
+          <p className="text-xs text-[#6B716D] mt-1 line-clamp-2 leading-relaxed font-body">
+            {tagline}
+          </p>
+        </div>
+
+        {/* Red CTA Button */}
+        <div className="pt-2">
+          <Link
+            href={targetHref}
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B82025] group-hover:text-[#8F171C] transition-colors"
+          >
+            <span>View {title}</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

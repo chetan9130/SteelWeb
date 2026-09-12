@@ -18,20 +18,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VORTEX STEEL | Architectural Barndominiums, Steel Buildings & Kits",
-  description: "Manufacturer and architectural engineer of luxury barndominiums, custom clear-span steel buildings, modern cabins, and pre-engineered building kits.",
+  title: "VORTEX STEEL | Premium Cabins, Tiny Homes, Barndominiums & Steel Buildings",
+  description: "American construction, architectural cabins, luxury barndominiums, clear-span steel buildings and pre-engineered building kits built to last a lifetime.",
   keywords: [
+    "Cabins",
+    "Modern Cabins",
+    "Tiny Homes",
     "Barndominiums",
     "Steel Buildings",
     "Metal Buildings",
     "Building Kits",
-    "Modern Barn Homes",
-    "Clear-Span Steel Workshops",
-    "Engineered Cabins",
+    "Clear-Span Workshops",
   ],
   openGraph: {
-    title: "VORTEX STEEL | Architectural Steel Structures",
-    description: "Build something worth living in. Engineered steel buildings and modern barndominiums designed around the way you live.",
+    title: "VORTEX STEEL | Premium Cabins & Architectural Steel Structures",
+    description: "Build a space that feels like home. Premium cabins, tiny homes, steel buildings and custom building solutions designed for the way you live.",
     type: "website",
   },
 };
@@ -42,8 +43,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} light scroll-smooth`}>
-      <body className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#111315] antialiased selection:bg-[#C8753D] selection:text-white">
+    <html lang="en" data-scroll-behavior="smooth" className={`${spaceGrotesk.variable} ${inter.variable} light scroll-smooth`}>
+      <body className="min-h-screen flex flex-col bg-white text-[#1D2521] antialiased selection:bg-[#B82025] selection:text-white">
         <Navbar />
         <main className="flex-1">
           {children}

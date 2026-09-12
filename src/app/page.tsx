@@ -1,241 +1,131 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { 
   ArrowRight, 
-  ChevronDown, 
-  Shield, 
+  Play, 
   CheckCircle2, 
-  Layers, 
-  Compass, 
-  Flame, 
-  Wind, 
-  Hammer,
-  FileUp,
-  Sparkles
+  ShieldCheck, 
+  Sliders, 
+  Truck, 
+  HeartHandshake,
+  Calendar,
+  Layers,
+  FileCheck,
+  Headphones,
+  Wrench
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import BuildingCard from "@/components/BuildingCard";
 import CategoryCard from "@/components/CategoryCard";
-import StatsSection from "@/components/StatsSection";
-import CTASection from "@/components/CTASection";
+import VideoCard from "@/components/VideoCard";
+import VideoModal from "@/components/VideoModal";
+import FloorPlanUploadCard from "@/components/FloorPlanUploadCard";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { BUILDING_MODELS, CATEGORIES } from "@/data/models";
+import { VIDEOS_DATA, VideoItem } from "@/data/videos";
 
 export default function HomePage() {
-  const featuredModels = BUILDING_MODELS.slice(0, 6);
+  const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
+
+  // The 4 featured models specifically highlighted in prompt.md
+  const featuredModels = BUILDING_MODELS.slice(0, 4);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newsletterEmail.trim()) {
+      setNewsletterSubscribed(true);
+      setNewsletterEmail("");
+    }
+  };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FAF8F5]">
-      {/* 1. CINEMATIC HERO SECTION */}
-      <section className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#111315]">
-        {/* Background Image with Clean Architectural Contrast Overlay */}
+    <div className="flex flex-col min-h-screen bg-white">
+      {/* 3. HERO SECTION (70-85vh Desktop, Architectural Cabin/Building Photography) */}
+      <section className="relative min-h-[75vh] md:min-h-[82vh] flex items-center justify-center overflow-hidden bg-[#17352A] pt-24 pb-20">
+        {/* Background Architectural Photo with Subtle Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85"
-            alt="Vortex Architectural Barndominium"
+            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=85"
+            alt="Premium Architectural Cabin and Steel Building"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center filter brightness-[0.65] contrast-[1.15] scale-105"
+            className="object-cover object-center filter brightness-[0.55] contrast-[1.1] scale-100 transition-transform duration-1000"
           />
-          {/* Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60" />
-          <div className="absolute inset-0 bg-architectural-grid opacity-15 pointer-events-none" />
+          {/* Subtle dark green vignette overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#17352A] via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-architectural-grid opacity-10 pointer-events-none" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center flex flex-col items-center">
-          {/* Headline */}
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold uppercase tracking-tight text-white leading-[0.92] font-display max-w-5xl drop-shadow-lg">
-            BUILD YOUR <br />
-            <span className="text-[#D8C7A3]">VISION.</span>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          {/* Small Label */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-[#17352A]/80 border border-[#234A3A] text-white/90 text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] mb-6 shadow-md backdrop-blur-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+            <span>Quality Buildings • Built To Last</span>
+          </div>
+
+          {/* Large Confident Heading */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.96] font-display max-w-4xl drop-shadow-md">
+            BUILD A SPACE <br />
+            <span className="text-[#F7F4EC]">THAT FEELS LIKE HOME.</span>
           </h1>
 
-          {/* Supporting text */}
-          <p className="mt-6 sm:mt-8 text-base sm:text-xl md:text-2xl text-white/90 max-w-2xl font-body leading-relaxed font-normal drop-shadow-sm">
-            Premium steel buildings, barndominiums, and custom building solutions designed around the way you live.
+          {/* Supporting Text */}
+          <p className="mt-5 sm:mt-6 text-sm sm:text-lg md:text-xl text-white/90 max-w-2xl font-body leading-relaxed font-normal drop-shadow-sm">
+            Explore premium cabins, tiny homes, steel buildings and custom building solutions designed for the way you live.
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            {/* Primary Red CTA */}
             <Link
-              href="/models"
-              className="w-full sm:w-auto px-8 py-4 bg-[#C8753D] hover:bg-[#BA642C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-xl hover:shadow-[0_0_25px_rgba(200,117,61,0.5)] flex items-center justify-center gap-2 group"
+              href="#categories"
+              className="w-full sm:w-auto px-8 py-4 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-xl flex items-center justify-center gap-2 group"
             >
-              <span>Explore Buildings</span>
+              <span>Explore Our Buildings</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
+            {/* Secondary White/Outline CTA */}
             <Link
               href="/quote"
-              className="w-full sm:w-auto px-8 py-4 bg-white/90 hover:bg-white text-[#111315] hover:text-[#C8753D] border border-white/20 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm backdrop-blur-md transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
+              className="w-full sm:w-auto px-8 py-4 bg-white/90 hover:bg-white text-[#1D2521] hover:text-[#B82025] border border-white/30 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm backdrop-blur-md transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
             >
               <span>Get an Instant Quote</span>
             </Link>
           </div>
 
-          {/* Specs Mini-ticker */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-left border-t border-white/20 pt-8 max-w-4xl w-full text-white">
-            <div>
-              <div className="text-xs uppercase tracking-widest text-[#D8C7A3] font-semibold">Frame Standard</div>
-              <div className="text-sm sm:text-base font-bold mt-0.5">Heavy Red Iron & Cold Formed</div>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-widest text-[#D8C7A3] font-semibold">Wind Certification</div>
-              <div className="text-sm sm:text-base font-bold mt-0.5">Up to 165 MPH Rated</div>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-widest text-[#D8C7A3] font-semibold">Warranty Guarantee</div>
-              <div className="text-sm sm:text-base font-bold mt-0.5">40 to 50 Years Limited</div>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-widest text-[#D8C7A3] font-semibold">Blueprint Stamping</div>
-              <div className="text-sm sm:text-base font-bold mt-0.5">All 50 US States Stamped</div>
-            </div>
+          {/* Secondary Small Action: ▶ Watch Video */}
+          <div className="mt-6">
+            <button
+              onClick={() => setSelectedVideo(VIDEOS_DATA[0])}
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90 hover:text-white transition-colors group cursor-pointer"
+            >
+              <span className="w-7 h-7 rounded-full bg-[#B82025] group-hover:bg-[#8F171C] flex items-center justify-center text-white transition-transform group-hover:scale-110 shadow-sm">
+                <Play className="w-3 h-3 ml-0.5 fill-current" />
+              </span>
+              <span>Watch Video</span>
+            </button>
           </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 pointer-events-none opacity-80">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-[#D8C7A3]">
-            Scroll
-          </span>
-          <ChevronDown className="w-4 h-4 text-[#D8C7A3] animate-bounce" />
         </div>
       </section>
 
-      {/* 2. STATS SECTION (WARM SANDSTONE BACKGROUND) */}
-      <StatsSection />
-
-      {/* 3. FEATURED BUILDINGS SECTION (LIGHT WARM OFF-WHITE) */}
-      <section className="py-24 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 4. EXPLORE OUR BUILDINGS (5 Category Cards in 5-col / 4-col / 2-col) */}
+      <section id="categories" className="py-20 sm:py-24 bg-white scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeading
-            eyebrow="Architectural Portfolio"
-            title="Find the Right Space For Your Next Chapter."
-            subtitle="Explore pre-engineered, clear-span designs engineered with heavy steel rigid framing and custom residential finishes."
-            ctaText="View All 10 Models"
-            ctaHref="/models"
+            title="EXPLORE OUR BUILDINGS"
+            subtitle="Find the perfect building for your land, lifestyle and budget."
+            align="center"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {featuredModels.map((model, idx) => (
-              <BuildingCard key={model.id} model={model} priority={idx === 0} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. WHY STEEL SECTION (SPLIT WARM/COOL ARCHITECTURAL LAYOUT) */}
-      <section className="py-24 bg-[#F3EFE6] border-t border-[#E5E0D4] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left: Large Construction Image */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative aspect-[4/5] rounded-sm overflow-hidden border border-[#E5E0D4] shadow-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80"
-                  alt="Clear Span Steel Frame Construction"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
-
-                {/* Floating Technical Spec Badge */}
-                <div className="absolute bottom-6 left-6 right-6 p-5 bg-white/95 border border-[#E5E0D4] backdrop-blur-md rounded-sm shadow-md">
-                  <div className="flex items-center justify-between text-xs text-[#111315] font-bold uppercase tracking-wider mb-1">
-                    <span>Rigid Frame Tolerance</span>
-                    <span className="text-[#C8753D]">ASTM A572 Grade 50</span>
-                  </div>
-                  <p className="text-xs text-[#64748B]">
-                    Unobstructed spans of up to 100 feet without a single load-bearing interior column. Design any floor plan layout freely.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Technical Benefits Breakdown */}
-            <div className="lg:col-span-6 space-y-8">
-              <div>
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-[#C8753D]">
-                  <span className="w-2 h-2 rounded-full bg-[#C8753D]"></span>
-                  <span>Engineering Superiority</span>
-                </div>
-                <h2 className="text-4xl sm:text-5xl font-extrabold uppercase tracking-tight text-[#111315] leading-[1.05] mt-2 font-display">
-                  Built Different. <br />
-                  <span className="text-[#C8753D]">Engineered For Life.</span>
-                </h2>
-                <p className="text-sm sm:text-base text-[#64748B] mt-4 leading-relaxed font-body">
-                  Traditional stick framing is vulnerable to warping, rot, insect infestation, and fire. Vortex structural steel frames are precision pre-punched, non-combustible, and rated to withstand the harshest weather extremes.
-                </p>
-              </div>
-
-              {/* Numbered Statistics & Points */}
-              <div className="space-y-4">
-                {[
-                  {
-                    num: "01",
-                    title: "Engineered For Strength",
-                    desc: "Structural red iron and high-yield cold formed members rated for 150+ MPH winds and up to 75 PSF alpine snow loads.",
-                    icon: Wind,
-                  },
-                  {
-                    num: "02",
-                    title: "Designed For Flexibility",
-                    desc: "100% clear-span structural design leaves your interior completely open. Move walls, add lofts, or change rooms at will.",
-                    icon: Layers,
-                  },
-                  {
-                    num: "03",
-                    title: "Built To Last Decades",
-                    desc: "Non-combustible Class A fire rated, zero termite vulnerability, and zero mold degradation backed by a 40-year warranty.",
-                    icon: Flame,
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.num}
-                    className="p-5 rounded-sm bg-white border border-[#E5E0D4] hover:border-[#C8753D] shadow-xs hover:shadow-sm transition-colors flex items-start gap-4"
-                  >
-                    <span className="text-2xl font-bold font-display text-[#C8753D] shrink-0">
-                      {item.num}
-                    </span>
-                    <div className="space-y-1">
-                      <h3 className="text-base font-bold uppercase tracking-wide text-[#111315]">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-[#64748B] leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#111315] hover:text-[#C8753D] transition-colors group"
-                >
-                  <span>Learn More About Our Steel Specifications</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. BUILDING CATEGORIES SECTION (LIGHT WARM) */}
-      <section className="py-24 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Structure Typologies"
-            title="Explore Building Categories"
-            subtitle="From sprawling modern ranch estates to heavy industrial shops and DIY bolt-together kits."
-            align="left"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 mt-10">
             {CATEGORIES.map((cat) => (
               <CategoryCard
                 key={cat.id}
@@ -244,43 +134,453 @@ export default function HomePage() {
                 tagline={cat.tagline}
                 image={cat.image}
                 count={cat.count}
+                href={cat.href}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* 6. UPLOAD FLOOR PLAN TEASER */}
-      <section className="py-20 bg-[#F3EFE6] border-y border-[#E5E0D4]">
+      {/* 5. INSTANT QUOTE + FLOOR PLAN (Two-Column Premium CTA Section) */}
+      <section className="py-16 sm:py-20 bg-[#F7F4EC] border-y border-[#E5E0D4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 p-8 sm:p-12 bg-white border border-[#E5E0D4] rounded-sm shadow-md">
-            <div className="max-w-xl space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#C8753D]">
-                <FileUp className="w-4 h-4" />
-                <span>Custom Engineering</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            {/* LEFT: Dark / Visual Section (#17352A) */}
+            <div className="lg:col-span-6 bg-[#17352A] text-white p-8 sm:p-12 rounded-sm flex flex-col justify-between shadow-xl relative overflow-hidden">
+              <div className="relative z-10 space-y-6">
+                {/* Badge: "NEW" */}
+                <div className="inline-flex items-center px-3 py-1 bg-[#B82025] text-white text-[11px] font-extrabold uppercase tracking-widest rounded-xs">
+                  NEW
+                </div>
+
+                <div>
+                  <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white font-display">
+                    GET AN INSTANT QUOTE
+                  </h2>
+                  <p className="mt-3 text-sm text-white/80 leading-relaxed font-body">
+                    Use our simple quote tool to get an estimated price for your building.
+                  </p>
+                </div>
+
+                {/* Checklist */}
+                <ul className="space-y-3 pt-2 text-sm sm:text-base font-semibold text-white/95">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#B82025] shrink-0" />
+                    <span>Choose your building type</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#B82025] shrink-0" />
+                    <span>Select size and options</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#B82025] shrink-0" />
+                    <span>Get an estimated price</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#B82025] shrink-0" />
+                    <span>Connect with our team</span>
+                  </li>
+                </ul>
               </div>
-              <h3 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-[#111315] font-display">
-                Already Have A Floor Plan?
-              </h3>
-              <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-body">
-                Upload your architectural sketches, blueprints, or preliminary layouts. Our structural engineers will convert them into pre-engineered steel frames with transparent pricing.
-              </p>
+
+              {/* Red CTA Button */}
+              <div className="pt-8 relative z-10">
+                <Link
+                  href="/quote"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-colors shadow-lg"
+                >
+                  <span>Get My Quote</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Subtle background corner graphic */}
+              <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-[#234A3A]/40 rounded-full blur-3xl pointer-events-none" />
             </div>
 
-            <div className="shrink-0 flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-              <Link
-                href="/upload-floor-plan"
-                className="px-8 py-4 bg-[#C8753D] hover:bg-[#BA642C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors text-center shadow-md hover:shadow-lg"
-              >
-                Upload Your Floor Plan →
-              </Link>
+            {/* RIGHT: "HAVE A FLOOR PLAN?" Card */}
+            <div className="lg:col-span-6 flex">
+              <div className="w-full">
+                <FloorPlanUploadCard />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. INSTANT QUOTE CTA SECTION */}
-      <CTASection />
+      {/* 6. WHY CHOOSE US (Split Section: Image Left, Benefits Right) */}
+      <section className="py-20 sm:py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left: Large High-Quality Construction / Building Image */}
+            <div className="lg:col-span-6">
+              <div className="relative aspect-[4/5] rounded-sm overflow-hidden border border-[#E5E0D4] shadow-xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80"
+                  alt="Precision Craftsmanship and Steel Construction"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
+                {/* Floating Badge */}
+                <div className="absolute bottom-6 left-6 right-6 p-5 bg-white/95 border border-[#E5E0D4] backdrop-blur-md rounded-sm shadow-md">
+                  <div className="flex items-center justify-between text-xs text-[#1D2521] font-bold uppercase tracking-wider mb-1">
+                    <span>Engineering Quality Standard</span>
+                    <span className="text-[#B82025]">ASTM Certified</span>
+                  </div>
+                  <p className="text-xs text-[#6B716D]">
+                    Rigid commercial-grade steel structural components engineered for extreme weather resilience and lifetime durability.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Why Choose Us Content & 4 Benefits */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-[#B82025]">
+                  <span className="w-2 h-2 rounded-full bg-[#B82025]"></span>
+                  <span>WHY CHOOSE US</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#1D2521] leading-[1.08] mt-2 font-display">
+                  BUILT FOR MORE THAN JUST TODAY.
+                </h2>
+                <p className="text-sm text-[#6B716D] mt-3 leading-relaxed font-body">
+                  From residential cabin retreats to commercial clear-span workshops, every structure is built with unyielding attention to structural precision, energy efficiency, and enduring beauty.
+                </p>
+              </div>
+
+              {/* 4 Benefits with 01-04 numerals & red icons */}
+              <div className="space-y-3.5 pt-2">
+                {[
+                  {
+                    num: "01",
+                    title: "Superior Craftsmanship",
+                    desc: "Handcrafted architectural timber accents backed by high-yield precision cold-formed and red-iron steel framing.",
+                    icon: ShieldCheck,
+                  },
+                  {
+                    num: "02",
+                    title: "Customizable Options",
+                    desc: "Tailor exterior siding, roof pitches, window placements, porches, and clear-span interiors to your exact lifestyle.",
+                    icon: Sliders,
+                  },
+                  {
+                    num: "03",
+                    title: "Nationwide Delivery",
+                    desc: "We coordinate dedicated flatbed transport directly to your homesite anywhere in the contiguous United States.",
+                    icon: Truck,
+                  },
+                  {
+                    num: "04",
+                    title: "Family Owned & Operated",
+                    desc: "Personalized service, transparent pricing, and dedicated engineering consultation for every customer project.",
+                    icon: HeartHandshake,
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.num}
+                    className="p-4 sm:p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] hover:border-[#B82025] transition-colors flex items-start gap-4"
+                  >
+                    <span className="text-2xl font-black font-display text-[#B82025] shrink-0">
+                      {item.num}
+                    </span>
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <item.icon className="w-4 h-4 text-[#B82025]" />
+                        <h3 className="text-sm sm:text-base font-bold uppercase tracking-wide text-[#1D2521]">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-xs text-[#6B716D] leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Small CTA: [ Learn More → ] */}
+              <div className="pt-2">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1D2521] hover:text-[#B82025] transition-colors group"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4 text-[#B82025] transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FEATURED BUILDINGS (4 Large Product Cards) */}
+      <section className="py-20 sm:py-24 bg-[#F7F4EC] border-t border-[#E5E0D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            title="FEATURED BUILDINGS"
+            subtitle="Explore our most popular architectural models designed for durability, comfort, and swift installation."
+            ctaText="View All Buildings →"
+            ctaHref="/buildings"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {featuredModels.map((model, idx) => (
+              <BuildingCard key={model.id} model={model} priority={idx === 0} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. HOW IT WORKS (Horizontal 4-Step Process) */}
+      <section className="py-20 sm:py-24 bg-white border-b border-[#E5E0D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <SectionHeading
+            eyebrow="Our Process"
+            title="HOW IT WORKS"
+            subtitle="From first inspiration to turnkey keys in hand, we make building simple and stress-free."
+            align="center"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 text-left">
+            {[
+              {
+                step: "01",
+                title: "Choose",
+                desc: "Select your building type and customize your options.",
+                icon: Layers,
+              },
+              {
+                step: "02",
+                title: "Get Instant Quote",
+                desc: "Use our quote tool or upload your floor plan.",
+                icon: FileCheck,
+              },
+              {
+                step: "03",
+                title: "Talk to Our Team",
+                desc: "We'll review your requirements and answer your questions.",
+                icon: Headphones,
+              },
+              {
+                step: "04",
+                title: "Delivery & Setup",
+                desc: "We deliver nationwide and provide setup guidance.",
+                icon: Wrench,
+              },
+            ].map((s) => (
+              <div
+                key={s.step}
+                className="bg-[#F7F4EC] border border-[#E5E0D4] p-6 sm:p-7 rounded-sm relative flex flex-col justify-between hover:border-[#17352A] transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-3xl font-black font-display text-[#B82025]">
+                      {s.step}
+                    </span>
+                    <div className="w-10 h-10 rounded-full bg-white border border-[#E5E0D4] flex items-center justify-center text-[#B82025] shadow-2xs">
+                      <s.icon className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold uppercase tracking-tight text-[#1D2521] font-display">
+                    {s.title}
+                  </h3>
+                  <p className="text-xs text-[#6B716D] mt-2 leading-relaxed font-body">
+                    {s.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. VIDEO SECTION (Dark Green Background #17352A) */}
+      <section className="py-20 sm:py-24 bg-[#17352A] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Visual Showcase"
+            title="WATCH OUR BUILDINGS COME TO LIFE."
+            subtitle="Step inside finished cabins, watch rigid-frame time-lapses, and hear from real owners across the country."
+            align="left"
+            ctaText="View All Videos →"
+            ctaHref="/videos"
+            light={true}
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
+            {VIDEOS_DATA.slice(0, 5).map((vid) => (
+              <VideoCard
+                key={vid.id}
+                video={vid}
+                onPlay={(v) => setSelectedVideo(v)}
+                dark={true}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. TESTIMONIALS */}
+      <section id="testimonials" className="py-20 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Customer Reviews"
+            title="WHAT OUR CUSTOMERS SAY"
+            subtitle="Hear how our steel buildings and architectural cabins exceed expectations for owners nationwide."
+            align="center"
+          />
+
+          <div className="mt-12">
+            <TestimonialsCarousel />
+          </div>
+        </div>
+      </section>
+
+      {/* 11. BLOG / RESOURCES (3 Article Cards) */}
+      <section id="blog" className="py-20 sm:py-24 bg-[#F7F4EC] border-t border-[#E5E0D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Resources & Insights"
+            title="FROM THE BLOG"
+            subtitle="Expert advice on cabin construction, structural steel engineering, and property planning."
+            ctaText="View All Posts →"
+            ctaHref="/#blog"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            {[
+              {
+                id: "blog-1",
+                category: "Cabin Guide",
+                title: "5 Things to Consider Before Buying a Cabin",
+                date: "October 12, 2026",
+                image: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
+                snippet: "From soil bearing tests and snow load ratings to off-grid solar prep, here is what you need before placing your order.",
+              },
+              {
+                id: "blog-2",
+                category: "Engineering",
+                title: "Steel Building vs. Traditional Construction",
+                date: "September 28, 2026",
+                image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+                snippet: "Why non-combustible steel framing offers 40% faster dry-in times and zero vulnerability to pests, warping, or rotting.",
+              },
+              {
+                id: "blog-3",
+                category: "Architecture",
+                title: "How Custom Buildings Make a Difference",
+                date: "September 15, 2026",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+                snippet: "How clear-span designs empower owners to create open cathedral ceilings and customized floor plan layouts.",
+              },
+            ].map((post) => (
+              <div
+                key={post.id}
+                className="group bg-white border border-[#E5E0D4] rounded-sm overflow-hidden flex flex-col justify-between hover:border-[#17352A] transition-all duration-300 hover:shadow-xl"
+              >
+                <div>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F7F4EC]">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-white/95 text-[#1D2521] rounded-xs shadow-xs">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-6 space-y-2">
+                    <div className="flex items-center gap-2 text-xs text-[#6B716D]">
+                      <Calendar className="w-3.5 h-3.5 text-[#B82025]" />
+                      <span>{post.date}</span>
+                    </div>
+                    <h3 className="text-lg font-bold uppercase tracking-tight text-[#1D2521] group-hover:text-[#B82025] transition-colors font-display">
+                      {post.title}
+                    </h3>
+                    <p className="text-xs text-[#6B716D] line-clamp-3 leading-relaxed mt-2">
+                      {post.snippet}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 pt-0">
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B82025] group-hover:text-[#8F171C] transition-colors"
+                  >
+                    <span>Read More</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 12. NEWSLETTER CTA (Full-Width Image Background Section with Dark Overlay) */}
+      <section className="relative py-20 bg-[#17352A] overflow-hidden">
+        {/* Full-width image background */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=80"
+            alt="Scenic mountain landscape"
+            fill
+            sizes="100vw"
+            className="object-cover filter brightness-[0.35]"
+          />
+          <div className="absolute inset-0 bg-[#17352A]/85 backdrop-blur-2xs" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white font-display">
+            STAY IN THE LOOP
+          </h2>
+          <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto font-body">
+            Get updates on new models, special offers and building tips.
+          </p>
+
+          {newsletterSubscribed ? (
+            <div className="inline-flex items-center gap-2 p-3 bg-white/10 border border-white/20 text-white text-xs rounded-sm backdrop-blur-md">
+              <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
+              <span>Thank you for subscribing to our building journal!</span>
+            </div>
+          ) : (
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2.5 max-w-md mx-auto pt-2">
+              <input
+                type="email"
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                placeholder="Enter your email address"
+                className="w-full px-4 py-3.5 bg-white text-xs text-[#1D2521] placeholder-[#6B716D] focus:outline-none focus:ring-2 focus:ring-[#B82025] rounded-sm shadow-md"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shrink-0 shadow-md flex items-center justify-center gap-2"
+              >
+                <span>Subscribe</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* Video Modal Player */}
+      <VideoModal
+        video={selectedVideo}
+        onClose={() => setSelectedVideo(null)}
+      />
     </div>
   );
 }

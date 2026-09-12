@@ -9,6 +9,7 @@ interface SectionHeadingProps {
   ctaText?: string;
   ctaHref?: string;
   className?: string;
+  light?: boolean;
 }
 
 export default function SectionHeading({
@@ -19,6 +20,7 @@ export default function SectionHeading({
   ctaText,
   ctaHref,
   className = "",
+  light = false,
 }: SectionHeadingProps) {
   return (
     <div
@@ -28,16 +30,20 @@ export default function SectionHeading({
     >
       <div className={align === "center" ? "" : "max-w-2xl"}>
         {eyebrow && (
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-[#C8753D] mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#C8753D]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-[#B82025] mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#B82025]"></span>
             <span>{eyebrow}</span>
           </div>
         )}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#111315] leading-[1.1] font-display">
+        <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-[1.08] font-display ${
+          light ? "text-white" : "text-[#1D2521]"
+        }`}>
           {title}
         </h2>
         {subtitle && (
-          <p className="mt-4 text-base sm:text-lg text-[#64748B] leading-relaxed font-body">
+          <p className={`mt-3 text-sm sm:text-base leading-relaxed font-body ${
+            light ? "text-white/80" : "text-[#6B716D]"
+          }`}>
             {subtitle}
           </p>
         )}
@@ -47,10 +53,12 @@ export default function SectionHeading({
         <div className={align === "center" ? "mt-6" : "shrink-0"}>
           <Link
             href={ctaHref}
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#111315] hover:text-[#C8753D] transition-colors group"
+            className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider transition-colors group ${
+              light ? "text-white hover:text-[#B82025]" : "text-[#1D2521] hover:text-[#B82025]"
+            }`}
           >
             <span>{ctaText}</span>
-            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 text-[#B82025] transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </div>
       )}

@@ -7,12 +7,7 @@ import {
   X, 
   Send, 
   Sparkles, 
-  ArrowRight, 
-  Compass, 
-  Calculator, 
-  HelpCircle,
-  Building2,
-  Bot
+  ArrowRight
 } from "lucide-react";
 
 interface Message {
@@ -36,8 +31,9 @@ export default function AIBuildAssistant() {
       text: "Welcome to Vortex Steel. I am your architectural build advisor. What kind of project are you envisioning?",
       timestamp: "Just now",
       actionButtons: [
+        { label: "Cabins & Tiny Homes", query: "Tell me about your cabins and tiny homes" },
         { label: "Modern Barndominiums", query: "Tell me about your residential barndominiums" },
-        { label: "Steel Workshops & Shops", query: "What options do you have for heavy industrial workshops?" },
+        { label: "Steel Workshops & Sheds", query: "What options do you have for clear-span workshops?" },
         { label: "Estimate Build Cost", href: "/quote" },
         { label: "Upload Custom Floor Plan", href: "/upload-floor-plan" },
       ],
@@ -57,12 +53,23 @@ export default function AIBuildAssistant() {
   const generateBotReply = (userQuery: string): { reply: string; actionButtons?: { label: string; href?: string; query?: string }[] } => {
     const q = userQuery.toLowerCase();
 
+    if (q.includes("cabin") || q.includes("tiny") || q.includes("snow") || q.includes("mountain") || q.includes("off-grid")) {
+      return {
+        reply: "Our signature cabins include 'The Homestead Cabin' (1,200 sq ft, starting at $49,900) and 'The Retreat' luxury tiny home (650 sq ft, starting at $39,900), both engineered with heavy structural steel cores and timber accents.",
+        actionButtons: [
+          { label: "The Homestead Cabin", href: "/buildings/the-homestead-cabin" },
+          { label: "The Retreat Tiny Home", href: "/buildings/the-retreat" },
+          { label: "The Yellowstone Ranch", href: "/buildings/the-yellowstone" },
+        ],
+      };
+    }
+
     if (q.includes("barndominium") || q.includes("residential") || q.includes("living") || q.includes("house")) {
       return {
-        reply: "Our Barndominiums blend rigid red-iron steel frames with open Scandinavian luxury interiors. Our top residential design is 'The Hawthorne' (2,400 sq ft, 3 Bed, starting at ₹1,68,000) or 'The Ridgeway Estate' (4,800 sq ft with carriage house).",
+        reply: "Our Barndominiums blend rigid red-iron steel frames with open Scandinavian luxury interiors. Our top residential designs include 'The Lancaster' (2,200 sq ft, starting at $64,500) and 'The Hawthorne' (2,400 sq ft with wraparound porch).",
         actionButtons: [
-          { label: "View The Hawthorne", href: "/models/the-hawthorne" },
-          { label: "View The Ridgeway", href: "/models/the-ridgeway-estate" },
+          { label: "View The Lancaster", href: "/buildings/the-lancaster" },
+          { label: "View The Hawthorne", href: "/buildings/the-hawthorne" },
           { label: "Calculate Quote", href: "/quote" },
         ],
       };
@@ -70,7 +77,7 @@ export default function AIBuildAssistant() {
 
     if (q.includes("quote") || q.includes("cost") || q.includes("price") || q.includes("estimate") || q.includes("sq ft")) {
       return {
-        reply: "Steel building kits typically range from ₹1,800 to ₹3,500 per sq ft for the engineered shell, while fully finished luxury barndominiums range from ₹8,500 to ₹14,000 per sq ft. You can calculate a customized breakdown using our interactive tool:",
+        reply: "Steel building kits typically range from $25 to $45 per sq ft for the engineered shell, while fully finished luxury barndominiums range from $120 to $180 per sq ft. You can calculate a customized breakdown using our interactive tool:",
         actionButtons: [
           { label: "Launch Instant Quote Tool →", href: "/quote" },
           { label: "Submit Floor Plan For Exact Bids", href: "/upload-floor-plan" },
@@ -78,40 +85,30 @@ export default function AIBuildAssistant() {
       };
     }
 
-    if (q.includes("workshop") || q.includes("commercial") || q.includes("shop") || q.includes("storage") || q.includes("crane")) {
+    if (q.includes("workshop") || q.includes("commercial") || q.includes("shop") || q.includes("storage") || q.includes("crane") || q.includes("shed")) {
       return {
-        reply: "For workshops and commercial storage, take a look at 'The Ironclad' (4,000 sq ft live-work facility) and our 'Apex Commercial Kit' (6,000 sq ft 100% clear-span with zero interior columns, 160 MPH wind rating).",
+        reply: "For workshops, sheds, and commercial storage, take a look at 'The Timberline Workshop' (3,000 sq ft clear-span) and 'The Artisan Shed' (480 sq ft versatile studio kit).",
         actionButtons: [
-          { label: "Explore The Ironclad", href: "/models/the-ironclad-workshop" },
-          { label: "Explore Apex Commercial", href: "/models/the-apex-commercial-kit" },
-        ],
-      };
-    }
-
-    if (q.includes("cabin") || q.includes("snow") || q.includes("mountain") || q.includes("off-grid")) {
-      return {
-        reply: "Our cabin line is built with steep pitches (up to 10:12) specifically rated for 75+ PSF snow loads. 'The Alpine Gable' (1,150 sq ft) and 'The Summit Ridge' (850 sq ft) are ideal for rugged mountain and off-grid parcels.",
-        actionButtons: [
-          { label: "Alpine Gable Cabin", href: "/models/the-alpine-gable-cabin" },
-          { label: "Summit Ridge Micro Cabin", href: "/models/the-summit-ridge-cabin" },
+          { label: "Explore The Timberline", href: "/buildings/the-timberline-workshop" },
+          { label: "Explore The Artisan Shed", href: "/buildings/the-artisan-shed" },
         ],
       };
     }
 
     if (q.includes("wood") || q.includes("steel vs") || q.includes("termite") || q.includes("fire")) {
       return {
-        reply: "Commercial steel structures offer non-combustible Class A fire resistance, zero risk of wood rot or termites, 40-50 year structural warranties, and allow clear-span spans of up to 100 feet without load-bearing interior walls.",
+        reply: "Commercial steel structures offer non-combustible Class A fire resistance, zero risk of wood rot or termites, 40-50 year structural warranties, and allow clear-span designs up to 100 feet without load-bearing interior walls.",
         actionButtons: [
           { label: "Read Why Steel Guide", href: "/about" },
-          { label: "Explore Models", href: "/models" },
+          { label: "Explore Buildings", href: "/buildings" },
         ],
       };
     }
 
     return {
-      reply: "Thank you for reaching out. We engineer and manufacture steel structures from 800 sq ft off-grid cabins to 10,000+ sq ft custom estates. Would you like to explore existing models or build a custom quote?",
+      reply: "Thank you for reaching out. We engineer and manufacture steel structures from 650 sq ft cabins to 5,000+ sq ft custom estates. Would you like to explore existing models or build a custom quote?",
       actionButtons: [
-        { label: "Browse All Models", href: "/models" },
+        { label: "Browse All Buildings", href: "/buildings" },
         { label: "Build a Quote", href: "/quote" },
         { label: "Contact an Engineer", href: "/contact" },
       ],
@@ -148,60 +145,58 @@ export default function AIBuildAssistant() {
   };
 
   return (
-    <aside aria-label="AI Build Advisor" className="fixed bottom-6 right-6 z-50">
-      {/* Trigger Button */}
-      {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="group flex items-center gap-3 px-4 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#E5E0D4] hover:border-[#C8753D] text-[#111315] rounded-full shadow-xl transition-all duration-300 hover:scale-105"
-        >
-          <div className="relative">
-            <div className="w-8 h-8 rounded-full bg-[#C8753D] flex items-center justify-center text-white shadow-xs">
-              <Bot className="w-4 h-4" />
-            </div>
-            <span className="absolute -top-1 -right-1 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8753D] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#C8753D]"></span>
+    <aside aria-label="AI Build Assistant Widget">
+      {/* Floating Trigger Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Open AI Build Assistant"
+        className={`fixed bottom-6 right-6 z-40 p-3.5 rounded-full shadow-2xl transition-all duration-300 flex items-center gap-2.5 ${
+          isOpen
+            ? "bg-[#17352A] text-white rotate-90"
+            : "bg-[#B82025] hover:bg-[#8F171C] text-white hover:scale-105"
+        }`}
+      >
+        {isOpen ? (
+          <X className="w-5 h-5" />
+        ) : (
+          <>
+            <MessageSquare className="w-5 h-5" />
+            <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline-block pr-1">
+              Build Advisor
             </span>
-          </div>
-          <div className="text-left pr-1 hidden sm:block">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#111315]">
-              Build Assistant
-            </div>
-            <div className="text-[10px] text-[#64748B] font-medium">Ask about models & pricing</div>
-          </div>
-        </button>
-      )}
+          </>
+        )}
+      </button>
 
-      {/* Floating Chat Modal */}
+      {/* Slide-over Drawer / Chat Window */}
       {isOpen && (
-        <div className="w-[360px] sm:w-[400px] h-[520px] bg-white border border-[#E5E0D4] rounded-lg shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div className="fixed bottom-20 right-4 sm:right-6 z-40 w-[calc(100vw-2rem)] sm:w-[380px] h-[520px] max-h-[80vh] bg-white border border-[#E5E0D4] rounded-sm shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
           {/* Header */}
-          <div className="bg-[#F3EFE6] px-4 py-3.5 border-b border-[#E5E0D4] flex items-center justify-between">
+          <div className="bg-[#17352A] text-white px-4 py-3.5 border-b border-[#234A3A] flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-full bg-[#C8753D] flex items-center justify-center text-white shadow-xs">
+              <div className="w-7 h-7 rounded-full bg-[#B82025] flex items-center justify-center text-white shadow-xs">
                 <Sparkles className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-[#111315]">
+                <div className="text-xs font-bold uppercase tracking-wider">
                   Vortex Build Assistant
                 </div>
-                <div className="text-[10px] text-[#64748B] flex items-center gap-1.5 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <div className="text-[10px] text-white/70 flex items-center gap-1.5 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                   Online • AI Architecture Advisor
                 </div>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1.5 text-[#64748B] hover:text-[#111315] hover:bg-[#E5E0D4]/50 rounded-sm transition-colors"
+              className="p-1.5 text-white/80 hover:text-white hover:bg-white/10 rounded-sm transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           {/* Messages Feed */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-[#FAF8F5]">
+          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-[#F7F4EC]/50">
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -210,8 +205,8 @@ export default function AIBuildAssistant() {
                 <div
                   className={`max-w-[85%] rounded-lg px-3.5 py-2.5 text-xs leading-relaxed shadow-xs ${
                     msg.sender === "user"
-                      ? "bg-[#C8753D] text-white"
-                      : "bg-white border border-[#E5E0D4] text-[#111315]"
+                      ? "bg-[#B82025] text-white"
+                      : "bg-white border border-[#E5E0D4] text-[#1D2521]"
                   }`}
                 >
                   {msg.text}
@@ -226,7 +221,7 @@ export default function AIBuildAssistant() {
                           key={idx}
                           href={btn.href}
                           onClick={() => setIsOpen(false)}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold bg-white hover:bg-[#C8753D] text-[#111315] hover:text-white border border-[#E5E0D4] rounded-full transition-colors shadow-2xs"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold bg-white hover:bg-[#B82025] text-[#1D2521] hover:text-white border border-[#E5E0D4] rounded-full transition-colors shadow-2xs"
                         >
                           <span>{btn.label}</span>
                           <ArrowRight className="w-3 h-3" />
@@ -235,7 +230,7 @@ export default function AIBuildAssistant() {
                         <button
                           key={idx}
                           onClick={() => handleSend(btn.query || btn.label)}
-                          className="px-2.5 py-1 text-[11px] font-semibold bg-white hover:bg-[#F3EFE6] text-[#111315] border border-[#E5E0D4] rounded-full transition-colors text-left shadow-2xs"
+                          className="px-2.5 py-1 text-[11px] font-semibold bg-white hover:bg-[#F7F4EC] text-[#1D2521] border border-[#E5E0D4] rounded-full transition-colors text-left shadow-2xs"
                         >
                           {btn.label}
                         </button>
@@ -244,7 +239,7 @@ export default function AIBuildAssistant() {
                   </div>
                 )}
 
-                <span className="text-[9px] text-[#94A3B8] mt-1 px-1">
+                <span className="text-[9px] text-[#6B716D] mt-1 px-1">
                   {msg.timestamp}
                 </span>
               </div>
@@ -252,34 +247,34 @@ export default function AIBuildAssistant() {
 
             {isTyping && (
               <div className="flex items-center gap-1.5 p-3 bg-white border border-[#E5E0D4] rounded-lg w-fit shadow-xs">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C8753D] animate-bounce"></div>
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C8753D] animate-bounce [animation-delay:0.2s]"></div>
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C8753D] animate-bounce [animation-delay:0.4s]"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B82025] animate-bounce"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B82025] animate-bounce [animation-delay:0.2s]"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B82025] animate-bounce [animation-delay:0.4s]"></div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
           {/* Quick suggestions strip */}
-          <div className="px-3 py-2 bg-white border-t border-[#E5E0D4] flex items-center gap-1.5 overflow-x-auto text-[10px] text-[#64748B] no-scrollbar">
-            <span className="shrink-0 font-bold text-[#111315]">Ask:</span>
+          <div className="px-3 py-2 bg-white border-t border-[#E5E0D4] flex items-center gap-1.5 overflow-x-auto text-[10px] text-[#6B716D] no-scrollbar">
+            <span className="shrink-0 font-bold text-[#1D2521]">Ask:</span>
             <button
-              onClick={() => handleSend("What sizes are available?")}
-              className="px-2 py-0.5 rounded bg-[#FAF8F5] border border-[#E5E0D4] hover:text-[#111315] shrink-0 transition-colors"
+              onClick={() => handleSend("Tell me about cabins")}
+              className="px-2 py-0.5 rounded bg-[#F7F4EC] border border-[#E5E0D4] hover:text-[#1D2521] shrink-0 transition-colors"
             >
-              Sizes?
+              Cabins?
             </button>
             <button
               onClick={() => handleSend("Why steel over wood framing?")}
-              className="px-2 py-0.5 rounded bg-[#FAF8F5] border border-[#E5E0D4] hover:text-[#111315] shrink-0 transition-colors"
+              className="px-2 py-0.5 rounded bg-[#F7F4EC] border border-[#E5E0D4] hover:text-[#1D2521] shrink-0 transition-colors"
             >
               Steel vs Wood
             </button>
             <button
-              onClick={() => handleSend("How much does a 2,400 sq ft build cost?")}
-              className="px-2 py-0.5 rounded bg-[#FAF8F5] border border-[#E5E0D4] hover:text-[#111315] shrink-0 transition-colors"
+              onClick={() => handleSend("What does a cabin cost?")}
+              className="px-2 py-0.5 rounded bg-[#F7F4EC] border border-[#E5E0D4] hover:text-[#1D2521] shrink-0 transition-colors"
             >
-              Price per SQ FT?
+              Cabin Pricing?
             </button>
           </div>
 
@@ -295,14 +290,14 @@ export default function AIBuildAssistant() {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Ask about models, pricing or floor plans..."
-              className="flex-1 bg-[#FAF8F5] border border-[#E5E0D4] px-3 py-2 text-xs text-[#111315] placeholder-[#94A3B8] focus:outline-none focus:border-[#C8753D] rounded-sm"
+              placeholder="Ask about cabins, models, pricing..."
+              className="flex-1 bg-[#F7F4EC] border border-[#E5E0D4] px-3 py-2 text-xs text-[#1D2521] placeholder-[#6B716D] focus:outline-none focus:border-[#B82025] rounded-sm"
             />
             <button
               type="submit"
               disabled={!inputValue.trim()}
               aria-label="Send message"
-              className="p-2 bg-[#C8753D] hover:bg-[#BA642C] disabled:opacity-40 disabled:hover:bg-[#C8753D] text-white rounded-sm transition-colors"
+              className="p-2 bg-[#B82025] hover:bg-[#8F171C] disabled:opacity-40 text-white rounded-sm transition-colors"
             >
               <Send className="w-3.5 h-3.5" />
             </button>
