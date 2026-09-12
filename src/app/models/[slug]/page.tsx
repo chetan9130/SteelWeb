@@ -34,10 +34,10 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const model = BUILDING_MODELS.find((m) => m.slug === slug);
-  if (!model) return { title: "Model Not Found | VORTEX STEEL" };
+  if (!model) return { title: "Model Not Found | AMISH BUILT CABINS" };
 
   return {
-    title: `${model.name} (${model.sqft} SQ FT) | VORTEX STEEL`,
+    title: `${model.name} (${model.sqft} SQ FT) | AMISH BUILT CABINS`,
     description: model.description,
   };
 }

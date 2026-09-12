@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { 
   Menu, 
@@ -63,11 +64,11 @@ export default function Navbar() {
               </a>
               <span className="hidden sm:inline-block text-white/30">•</span>
               <a
-                href="mailto:sales@vortexsteel.com"
+                href="mailto:sales@amishbuiltcabins.com"
                 className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-[#B82025]" />
-                <span>sales@vortexsteel.com</span>
+                <span>sales@amishbuiltcabins.com</span>
               </a>
             </div>
 
@@ -125,13 +126,20 @@ export default function Navbar() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             {/* Left: Project Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-sm bg-[#17352A] flex items-center justify-center border border-[#234A3A] transition-transform group-hover:scale-105">
-                <span className="font-extrabold text-[#B82025] text-lg font-display">V</span>
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+              <div className="relative h-10 sm:h-12 w-auto flex items-center transition-transform group-hover:scale-105">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Amish Built Cabins"
+                  width={140}
+                  height={84}
+                  className="h-9 sm:h-11 w-auto object-contain"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-black tracking-tight text-[#1D2521] uppercase font-display leading-tight">
-                  VORTEX<span className="text-[#B82025]">.</span>STEEL
+                <span className="text-base sm:text-xl font-black tracking-tight text-[#1D2521] uppercase font-display leading-tight">
+                  AMISH BUILT<span className="text-[#B82025]">.</span>CABINS
                 </span>
                 <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-[#6B716D] font-bold">
                   Buildings & Cabins

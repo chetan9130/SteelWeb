@@ -2,8 +2,8 @@ import { MapPin, Phone, Mail, Clock, HelpCircle } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact Our Engineering Team | VORTEX STEEL",
-  description: "Connect with Vortex Steel's structural specialists, project estimators, and cabin designers. Request a quote or schedule a design consultation.",
+  title: "Contact Our Engineering Team | AMISH BUILT CABINS",
+  description: "Connect with Amish Built Cabins' structural specialists, project estimators, and cabin designers. Request a quote or schedule a design consultation.",
 };
 
 const FAQS = [
@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: "Are the blueprints stamped for my local county?",
-    a: "Yes. All Vortex building kits come with licensed engineering calculation packets wet-stamped for the specific county and state where you are building.",
+    a: "Yes. All Amish Built Cabins kits come with licensed engineering calculation packets wet-stamped for the specific county and state where you are building.",
   },
   {
     q: "What type of foundation is required?",
@@ -67,8 +67,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-xs uppercase font-bold text-[#6B716D]">Engineering & Quotes</div>
-                  <a href="mailto:sales@vortexsteel.com" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                    sales@vortexsteel.com
+                  <a href="mailto:sales@amishbuiltcabins.com" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
+                    sales@amishbuiltcabins.com
                   </a>
                   <div className="text-[11px] text-[#6B716D]">Avg response time: under 4 business hours</div>
                 </div>

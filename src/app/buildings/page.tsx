@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import ModelsCatalog from "../models/ModelsCatalog";
 
 export const metadata = {
-  title: "Commercial & Residential Steel Buildings | VORTEX STEEL",
+  title: "Commercial & Residential Buildings | AMISH BUILT CABINS",
   description: "Explore our full catalog of residential barndominiums, agricultural workshops, modern cabins, and pre-engineered steel building kits.",
 };
 

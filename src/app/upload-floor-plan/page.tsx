@@ -2,7 +2,7 @@ import { FileCheck, Clock } from "lucide-react";
 import FloorPlanUploader from "@/components/FloorPlanUploader";
 
 export const metadata = {
-  title: "Upload Your Floor Plan | VORTEX STEEL",
+  title: "Upload Your Floor Plan | AMISH BUILT CABINS",
   description: "Already have a blueprint or architectural drawing? Upload your plan for a complimentary steel frame engineering breakdown and custom bid package.",
 };
 

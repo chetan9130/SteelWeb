@@ -23,7 +23,7 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "test-2",
-    quote: "Vortex engineered our 60x100 clear-span workshop and barndominium with zero interior posts. High winds in Texas haven't so much as rattled a single panel. Outstanding craftsmanship and communication.",
+    quote: "Amish Built Cabins engineered our 60x100 clear-span workshop and barndominium with zero interior posts. High winds in Texas haven't so much as rattled a single panel. Outstanding craftsmanship and communication.",
     author: "David R. Caldwell",
     location: "Fredericksburg, Texas",
     buildingType: "Custom Barndominium",

@@ -45,72 +45,90 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* 3. HERO SECTION (70-85vh Desktop, Architectural Cabin/Building Photography) */}
-      <section className="relative min-h-[75vh] md:min-h-[82vh] flex items-center justify-center overflow-hidden bg-[#17352A] pt-24 pb-20">
-        {/* Background Architectural Photo with Subtle Dark Overlay */}
+      {/* 3. HERO SECTION */}
+      <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#17352A] pt-40 sm:pt-48 md:pt-52 pb-24 md:pb-32">
+        {/* Background Architectural Cabin Photo with Multi-Layer Gradient */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=85"
-            alt="Premium Architectural Cabin and Steel Building"
+            src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=2400&q=85"
+            alt="Handcrafted Amish Built Cabin and Timber Home"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center filter brightness-[0.55] contrast-[1.1] scale-100 transition-transform duration-1000"
+            className="object-cover object-center filter brightness-[0.65] contrast-[1.08] scale-100 transition-transform duration-1000"
           />
-          {/* Subtle dark green vignette overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#17352A] via-black/40 to-black/60" />
-          <div className="absolute inset-0 bg-architectural-grid opacity-10 pointer-events-none" />
+          {/* Deep cinematic overlay for contrast and readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#17352A]/90 via-black/60 to-[#17352A]/95" />
+          <div className="absolute inset-0 bg-architectural-grid opacity-15 pointer-events-none" />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          {/* Small Label */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-[#17352A]/80 border border-[#234A3A] text-white/90 text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] mb-6 shadow-md backdrop-blur-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
-            <span>Quality Buildings • Built To Last</span>
-          </div>
+          {/* Eyebrow Badge */}
+          {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/95 text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] mb-6 backdrop-blur-md shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[#B82025] animate-pulse"></span>
+            <span>Authentic Heritage Craft • Built For Generations</span>
+          </div> */}
 
           {/* Large Confident Heading */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.96] font-display max-w-4xl drop-shadow-md">
-            BUILD A SPACE <br />
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-[1.05] font-display max-w-4xl drop-shadow-xl">
+            BUILD A SPACE <br className="hidden sm:inline" />
             <span className="text-[#F7F4EC]">THAT FEELS LIKE HOME.</span>
           </h1>
 
           {/* Supporting Text */}
-          <p className="mt-5 sm:mt-6 text-sm sm:text-lg md:text-xl text-white/90 max-w-2xl font-body leading-relaxed font-normal drop-shadow-sm">
-            Explore premium cabins, tiny homes, steel buildings and custom building solutions designed for the way you live.
+          <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg text-white/90 max-w-2xl font-body leading-relaxed font-normal drop-shadow-md">
+            Handcrafted Amish cabins, luxury barndominiums, tiny homes, and engineered clear-span steel buildings delivered nationwide with timeless durability.
           </p>
 
+          {/* Trust Highlights Strip */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-white/80 font-medium">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
+              Solid Timber & Steel
+            </span>
+            <span className="hidden sm:inline text-white/30">•</span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
+              Licensed Wet-Stamped Plans
+            </span>
+            <span className="hidden sm:inline text-white/30">•</span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
+              Nationwide Job Site Delivery
+            </span>
+          </div>
+
           {/* CTA Buttons */}
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
             {/* Primary Red CTA */}
             <Link
               href="#categories"
-              className="w-full sm:w-auto px-8 py-4 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-xl flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-xl flex items-center justify-center gap-2 group hover:scale-[1.02]"
             >
               <span>Explore Our Buildings</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            {/* Secondary White/Outline CTA */}
+            {/* Secondary White CTA */}
             <Link
               href="/quote"
-              className="w-full sm:w-auto px-8 py-4 bg-white/90 hover:bg-white text-[#1D2521] hover:text-[#B82025] border border-white/30 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm backdrop-blur-md transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
+              className="w-full sm:w-auto px-8 py-3.5 bg-white hover:bg-[#F7F4EC] text-[#1D2521] hover:text-[#B82025] border border-white/20 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02]"
             >
               <span>Get an Instant Quote</span>
             </Link>
           </div>
 
-          {/* Secondary Small Action: ▶ Watch Video */}
+          {/* Secondary Action: ▶ Watch Video */}
           <div className="mt-6">
             <button
               onClick={() => setSelectedVideo(VIDEOS_DATA[0])}
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90 hover:text-white transition-colors group cursor-pointer"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/85 hover:text-white transition-colors group cursor-pointer"
             >
-              <span className="w-7 h-7 rounded-full bg-[#B82025] group-hover:bg-[#8F171C] flex items-center justify-center text-white transition-transform group-hover:scale-110 shadow-sm">
+              <span className="w-7 h-7 rounded-full bg-white/20 border border-white/30 group-hover:bg-[#B82025] group-hover:border-[#B82025] flex items-center justify-center text-white transition-all group-hover:scale-110 shadow-sm">
                 <Play className="w-3 h-3 ml-0.5 fill-current" />
               </span>
-              <span>Watch Video</span>
+              <span>Watch Video Tour (2 Min)</span>
             </button>
           </div>
         </div>

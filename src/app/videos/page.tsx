@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import VideosClient from "./VideosClient";
 
 export const metadata = {
-  title: "Cinematic Video Gallery & Building Tours | VORTEX STEEL",
+  title: "Cinematic Video Gallery & Building Tours | AMISH BUILT CABINS",
   description: "Watch in-depth walkthroughs of our barndominiums, time-lapses of rigid steel frame erection, luxury interior finishes, and customer project stories.",
 };
 

@@ -18,10 +18,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VORTEX STEEL | Premium Cabins, Tiny Homes, Barndominiums & Steel Buildings",
+  title: "AMISH BUILT CABINS | Premium Cabins, Tiny Homes, Barndominiums & Steel Buildings",
   description: "American construction, architectural cabins, luxury barndominiums, clear-span steel buildings and pre-engineered building kits built to last a lifetime.",
   keywords: [
     "Cabins",
+    "Amish Built Cabins",
     "Modern Cabins",
     "Tiny Homes",
     "Barndominiums",
@@ -30,8 +31,16 @@ export const metadata: Metadata = {
     "Building Kits",
     "Clear-Span Workshops",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.png" },
+      { url: "/logo.jpeg" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
-    title: "VORTEX STEEL | Premium Cabins & Architectural Steel Structures",
+    title: "AMISH BUILT CABINS | Premium Cabins & Architectural Steel Structures",
     description: "Build a space that feels like home. Premium cabins, tiny homes, steel buildings and custom building solutions designed for the way you live.",
     type: "website",
   },

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   MessageSquare, 
   X, 
@@ -28,7 +29,7 @@ export default function AIBuildAssistant() {
     {
       id: "welcome-1",
       sender: "bot",
-      text: "Welcome to Vortex Steel. I am your architectural build advisor. What kind of project are you envisioning?",
+      text: "Welcome to Amish Built Cabins. I am your architectural build advisor. What kind of project are you envisioning?",
       timestamp: "Just now",
       actionButtons: [
         { label: "Cabins & Tiny Homes", query: "Tell me about your cabins and tiny homes" },
@@ -174,12 +175,18 @@ export default function AIBuildAssistant() {
           {/* Header */}
           <div className="bg-[#17352A] text-white px-4 py-3.5 border-b border-[#234A3A] flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-full bg-[#B82025] flex items-center justify-center text-white shadow-xs">
-                <Sparkles className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white/20 p-0.5 shrink-0 shadow-xs">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Amish Built Cabins"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider">
-                  Vortex Build Assistant
+                  Amish Built Advisor
                 </div>
                 <div className="text-[10px] text-white/70 flex items-center gap-1.5 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>

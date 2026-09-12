@@ -12,8 +12,8 @@ import StatsSection from "@/components/StatsSection";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata = {
-  title: "About Vortex Steel | American Construction & Heritage Craft",
-  description: "Learn about Vortex Steel's architectural heritage, manufacturing philosophy, rigid-frame engineering standards, and American cabin craftsmanship.",
+  title: "About Amish Built Cabins | American Construction & Heritage Craft",
+  description: "Learn about Amish Built Cabins' architectural heritage, manufacturing philosophy, rigid-frame engineering standards, and American cabin craftsmanship.",
 };
 
 export default function AboutPage() {
@@ -47,7 +47,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
-                <span>The Vortex Story</span>
+                <span>The Amish Built Story</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
                 Forged from Commercial Steel, Tailored for American Living
@@ -56,7 +56,7 @@ export default function AboutPage() {
                 For decades, commercial aviation hangars and industrial logistics hubs relied on pre-engineered rigid steel frames because nothing else could span 100 feet without sagging, rotting, or bowing.
               </p>
               <p className="text-sm sm:text-base text-[#6B716D] leading-relaxed font-body">
-                Vortex took that same ASTM A572 Grade 50 heavy red-iron steel technology and reimagined it for residential barndominiums, mountain cabins, and live-work compounds. We eliminated boring utility facades and replaced them with handcrafted timber accents, dramatic standing-seam cladding, and floor-to-ceiling panoramic glass assemblies.
+                Amish Built Cabins took that same ASTM A572 Grade 50 heavy red-iron steel technology and reimagined it for residential barndominiums, mountain cabins, and live-work compounds. We eliminated boring utility facades and replaced them with handcrafted timber accents, dramatic standing-seam cladding, and floor-to-ceiling panoramic glass assemblies.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-wider text-[#1D2521]">
@@ -75,7 +75,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] rounded-sm overflow-hidden border border-[#E5E0D4] shadow-xl">
                 <Image
                   src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-                  alt="Vortex Modern Architectural Building Structure"
+                  alt="Amish Built Cabins Modern Architectural Building Structure"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
@@ -91,7 +91,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Our Standard"
-            title="The Vortex Engineering Philosophy"
+            title="The Amish Built Cabins Philosophy"
             subtitle="How we guarantee structures that endure extreme environmental loads for half a century."
             align="left"
           />
@@ -155,7 +155,7 @@ export default function AboutPage() {
                   href="/quote"
                   className="px-6 py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors inline-flex items-center gap-2 shadow-xs"
                 >
-                  <span>Build With Vortex Today</span>
+                  <span>Build With Amish Built Cabins Today</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
