@@ -3,37 +3,37 @@ import { ArrowRight, Building2, Home } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center bg-[#FAF8F5] px-4 py-32 text-center">
+    <div className="min-h-[80vh] flex items-center justify-center bg-white px-4 py-32 text-center">
       <div className="max-w-md mx-auto space-y-6">
-        <div className="w-16 h-16 rounded-full bg-white border border-[#C8753D]/40 text-[#C8753D] shadow-sm flex items-center justify-center mx-auto">
+        <div className="w-16 h-16 rounded-full bg-[#F7F4EC] border border-[#B82025]/40 text-[#B82025] shadow-xs flex items-center justify-center mx-auto">
           <Building2 className="w-8 h-8" />
         </div>
 
         <div>
-          <div className="text-xs font-bold uppercase tracking-[0.25em] text-[#C8753D]">
+          <div className="text-xs font-bold uppercase tracking-[0.25em] text-[#B82025]">
             404 Error • Structure Not Found
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold uppercase tracking-tight text-[#111315] mt-2 font-display">
+          <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-[#1D2521] mt-2 font-display">
             Off The Blueprint
           </h1>
-          <p className="mt-3 text-xs sm:text-sm text-[#5C5850] leading-relaxed">
-            The architectural model or page you are looking for does not exist or has been relocated to another building series.
+          <p className="mt-3 text-xs sm:text-sm text-[#6B716D] leading-relaxed">
+            The architectural cabin, model, or page you are looking for does not exist or has been relocated to another building series.
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
           <Link
             href="/"
-            className="w-full sm:w-auto px-6 py-3 bg-[#C8753D] hover:bg-[#B3632E] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
+            className="w-full sm:w-auto px-6 py-3 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
           >
             <Home className="w-4 h-4" />
             <span>Return Home</span>
           </Link>
           <Link
-            href="/models"
-            className="w-full sm:w-auto px-6 py-3 bg-white hover:bg-[#F3EFE6] text-[#111315] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
+            href="/buildings"
+            className="w-full sm:w-auto px-6 py-3 bg-[#F7F4EC] hover:bg-[#17352A] hover:text-white text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
           >
-            <span>Explore Models</span>
+            <span>Explore Buildings</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

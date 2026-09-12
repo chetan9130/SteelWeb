@@ -9,7 +9,7 @@ export default function ContactForm() {
     email: "",
     phone: "",
     zip: "",
-    interest: "Barndominium",
+    interest: "Cabins",
     message: "",
   });
 
@@ -31,11 +31,11 @@ export default function ContactForm() {
         <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-600 flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-7 h-7" />
         </div>
-        <h3 className="text-2xl font-bold uppercase text-[#111315] font-display">
+        <h3 className="text-2xl font-black uppercase text-[#1D2521] font-display">
           Message Dispatched
         </h3>
-        <p className="text-xs sm:text-sm text-[#64748B] max-w-md mx-auto leading-relaxed">
-          Thank you, <span className="text-[#111315] font-semibold">{form.name}</span>. A regional build consultant has received your inquiry and will follow up within 1 business day.
+        <p className="text-xs sm:text-sm text-[#6B716D] max-w-md mx-auto leading-relaxed">
+          Thank you, <span className="text-[#1D2521] font-semibold">{form.name}</span>. A dedicated building specialist has received your inquiry and will follow up within 1 business day.
         </p>
         <div className="pt-2">
           <button
@@ -46,11 +46,11 @@ export default function ContactForm() {
                 email: "",
                 phone: "",
                 zip: "",
-                interest: "Barndominium",
+                interest: "Cabins",
                 message: "",
               });
             }}
-            className="px-5 py-2.5 bg-[#FAF8F5] hover:bg-[#F3EFE6] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#111315] rounded-sm transition-colors"
+            className="px-5 py-2.5 bg-[#F7F4EC] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#1D2521] rounded-sm transition-colors cursor-pointer"
           >
             Send Another Message
           </button>
@@ -60,17 +60,17 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white border border-[#E5E0D4] rounded-sm p-6 sm:p-10 space-y-5 shadow-md text-[#111315]">
-      <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8753D]">
+    <form onSubmit={handleSubmit} className="bg-white border border-[#E5E0D4] rounded-sm p-6 sm:p-10 space-y-5 shadow-md text-[#1D2521]">
+      <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
         Direct Engineering Consultation
       </div>
-      <h3 className="text-xl sm:text-2xl font-bold uppercase text-[#111315] font-display">
+      <h3 className="text-xl sm:text-2xl font-black uppercase text-[#1D2521] font-display">
         Send Us Your Project Details
       </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-bold text-[#111315] mb-1">
+          <label className="block text-xs font-bold text-[#1D2521] mb-1">
             Full Name *
           </label>
           <input
@@ -79,12 +79,12 @@ export default function ContactForm() {
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             placeholder="John Doe"
-            className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+            className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-[#111315] mb-1">
+          <label className="block text-xs font-bold text-[#1D2521] mb-1">
             Email Address *
           </label>
           <input
@@ -93,12 +93,12 @@ export default function ContactForm() {
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="john@domain.com"
-            className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+            className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-[#111315] mb-1">
+          <label className="block text-xs font-bold text-[#1D2521] mb-1">
             Phone Number *
           </label>
           <input
@@ -106,75 +106,78 @@ export default function ContactForm() {
             required
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            placeholder="(555) 123-4567"
-            className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+            placeholder="(555) 000-0000"
+            className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-[#111315] mb-1">
-            Build Location PIN/ZIP *
+          <label className="block text-xs font-bold text-[#1D2521] mb-1">
+            Build Site ZIP Code *
           </label>
           <input
             type="text"
             required
             value={form.zip}
             onChange={(e) => setForm({ ...form, zip: e.target.value })}
-            placeholder="e.g. 560001"
-            className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+            placeholder="e.g. 78701"
+            className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
           />
         </div>
       </div>
 
       <div>
-        <label className="block text-xs font-bold text-[#111315] mb-1">
-          Structure Typology
+        <label className="block text-xs font-bold text-[#1D2521] mb-1">
+          Primary Building Interest
         </label>
         <select
           value={form.interest}
           onChange={(e) => setForm({ ...form, interest: e.target.value })}
-          className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm cursor-pointer"
+          className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm cursor-pointer"
         >
-          <option value="Barndominium">Modern Barndominium (Residential)</option>
-          <option value="Steel Workshop">Commercial / Shop Clear-Span Facility</option>
-          <option value="Cabin">Modern Mountain / Lake Cabin</option>
-          <option value="Building Kit">Pre-Engineered DIY Kit</option>
-          <option value="Other">Custom Commercial Structure</option>
+          <option value="Cabins">Modern & Rustic Cabins</option>
+          <option value="Tiny Homes">Turnkey Tiny Homes</option>
+          <option value="Barndominium">Barndominium & Residential Living</option>
+          <option value="Steel Buildings">Clear-Span Steel Buildings & Shops</option>
+          <option value="Sheds & More">Sheds & Utility Workshops</option>
+          <option value="Custom Blueprint">Custom Blueprint Conversion</option>
         </select>
       </div>
 
       <div>
-        <label className="block text-xs font-bold text-[#111315] mb-1">
-          Message or Project Questions *
+        <label className="block text-xs font-bold text-[#1D2521] mb-1">
+          Project Notes or Questions *
         </label>
         <textarea
-          rows={4}
           required
+          rows={4}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
-          placeholder="Tell us about your property, intended timeline, target square footage, or any specific questions..."
-          className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+          placeholder="Describe your site location, desired square footage, timeline, and questions for our engineers..."
+          className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
         />
       </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full py-4 bg-[#C8753D] hover:bg-[#BA642C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 disabled:opacity-50"
-      >
-        {isSubmitting ? (
-          <span>Sending Transmission...</span>
-        ) : (
-          <>
-            <span>Send Message</span>
-            <ArrowRight className="w-4 h-4" />
-          </>
-        )}
-      </button>
+      <div className="pt-2">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer disabled:opacity-50"
+        >
+          {isSubmitting ? (
+            <span>Transmitting Request...</span>
+          ) : (
+            <>
+              <span>Send Consultation Request</span>
+              <ArrowRight className="w-4 h-4" />
+            </>
+          )}
+        </button>
+      </div>
 
-      <div className="flex items-center justify-center gap-2 text-[11px] text-[#64748B]">
-        <Shield className="w-3.5 h-3.5 text-[#C8753D]" />
-        <span>No spam. Your email and phone are used strictly for project estimates.</span>
+      <div className="flex items-center justify-center gap-2 text-xs text-[#6B716D] pt-1">
+        <Shield className="w-3.5 h-3.5 text-[#B82025]" />
+        <span>Your contact details are strictly confidential and will never be shared.</span>
       </div>
     </form>
   );

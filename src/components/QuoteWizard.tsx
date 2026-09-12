@@ -20,6 +20,7 @@ import {
   FileCheck
 } from "lucide-react";
 import { BUILDING_MODELS, CATEGORIES, BuildingModel } from "@/data/models";
+import { formatPrice } from "@/utils/currency";
 
 const AVAILABLE_OPTIONS = [
   { id: "opt-porch", name: "Wraparound Covered Timber Porch", price: 14500, desc: "Solid 8x8 posts with black structural brackets" },
@@ -32,9 +33,9 @@ const AVAILABLE_OPTIONS = [
 
 export default function QuoteWizard() {
   const [step, setStep] = useState(1);
-  const [category, setCategory] = useState<string>("Barndominiums");
+  const [category, setCategory] = useState<string>("Cabins");
   const [selectedModel, setSelectedModel] = useState<BuildingModel>(BUILDING_MODELS[0]);
-  const [sqft, setSqft] = useState<number>(2400);
+  const [sqft, setSqft] = useState<number>(1200);
   const [selectedOptions, setSelectedOptions] = useState<string[]>(["opt-insul", "opt-porch"]);
 
   // Contact Info
@@ -51,12 +52,13 @@ export default function QuoteWizard() {
 
   // Available models filtered by chosen category
   const filteredModels = useMemo(() => {
-    return BUILDING_MODELS.filter((m) => m.category === category);
+    const matched = BUILDING_MODELS.filter((m) => m.category === category);
+    return matched.length > 0 ? matched : BUILDING_MODELS;
   }, [category]);
 
   // Price Calculation Engine
   const calculation = useMemo(() => {
-    const standardSqft = selectedModel.sqft;
+    const standardSqft = selectedModel.sqft || 1000;
     const basePrice = selectedModel.startingPrice;
     const costPerSqFt = basePrice / standardSqft;
 
@@ -99,7 +101,7 @@ export default function QuoteWizard() {
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#C8753D", "#D8C7A3", "#BA642C"],
+        colors: ["#B82025", "#17352A", "#8F171C", "#F7F4EC"],
       });
     } catch {
       // Fallback
@@ -112,17 +114,12 @@ export default function QuoteWizard() {
     setSelectedOptions(["opt-insul", "opt-porch"]);
   };
 
-  const formatCurrency = (val: number) =>
-    new Intl.NumberFormat("en-IN", {
-      style: "currency",
-      currency: "INR",
-      maximumFractionDigits: 0,
-    }).format(val);
+  const formatCurrency = (val: number) => formatPrice(val);
 
   return (
-    <div className="bg-white border border-[#E5E0D4] rounded-sm shadow-xl overflow-hidden text-[#111315]">
+    <div className="bg-white border border-[#E5E0D4] rounded-sm shadow-xl overflow-hidden text-[#1D2521]">
       {/* Wizard Progress Bar */}
-      <div className="bg-[#F3EFE6] p-4 sm:p-6 border-b border-[#E5E0D4]">
+      <div className="bg-[#F7F4EC] p-4 sm:p-6 border-b border-[#E5E0D4]">
         <div className="flex items-center justify-between max-w-4xl mx-auto">
           {[
             { num: 1, label: "Building Type" },
@@ -136,17 +133,17 @@ export default function QuoteWizard() {
               <div
                 className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 ${
                   step === s.num
-                    ? "bg-[#C8753D] text-white shadow-md"
+                    ? "bg-[#B82025] text-white shadow-md"
                     : step > s.num
-                    ? "bg-white text-[#C8753D] border border-[#C8753D]"
-                    : "bg-[#FAF8F5] text-[#64748B] border border-[#E5E0D4]"
+                    ? "bg-white text-[#B82025] border border-[#B82025]"
+                    : "bg-white text-[#6B716D] border border-[#E5E0D4]"
                 }`}
               >
-                {step > s.num ? <Check className="w-4 h-4 text-[#C8753D]" /> : s.num}
+                {step > s.num ? <Check className="w-4 h-4 text-[#B82025]" /> : s.num}
               </div>
               <span
                 className={`hidden md:block text-[11px] uppercase tracking-wider mt-2 font-semibold ${
-                  step === s.num ? "text-[#111315]" : "text-[#64748B]"
+                  step === s.num ? "text-[#1D2521]" : "text-[#6B716D]"
                 }`}
               >
                 {s.label}
@@ -164,13 +161,13 @@ export default function QuoteWizard() {
             {step === 1 && (
               <div className="space-y-6 animate-in fade-in duration-200">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8753D]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
                     Step 01 of 06
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#111315] mt-1 font-display">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
                     Select Building Type
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+                  <p className="text-xs sm:text-sm text-[#6B716D] mt-1">
                     Choose the primary category for your planned structure.
                   </p>
                 </div>
@@ -191,28 +188,28 @@ export default function QuoteWizard() {
                         }}
                         className={`cursor-pointer relative p-5 rounded-sm border transition-all duration-300 flex items-start gap-4 ${
                           isSelected
-                            ? "bg-[#F3EFE6] border-[#C8753D] shadow-sm ring-1 ring-[#C8753D]"
-                            : "bg-[#FAF8F5] border-[#E5E0D4] hover:border-[#C8753D] hover:bg-white"
+                            ? "bg-[#F7F4EC] border-[#B82025] shadow-sm ring-1 ring-[#B82025]"
+                            : "bg-white border-[#E5E0D4] hover:border-[#17352A] hover:bg-[#F7F4EC]/50"
                         }`}
                       >
                         <div
                           className={`w-5 h-5 rounded-full border mt-0.5 flex items-center justify-center shrink-0 ${
                             isSelected
-                              ? "border-[#C8753D] bg-[#C8753D] text-white"
-                              : "border-[#94A3B8]"
+                              ? "border-[#B82025] bg-[#B82025] text-white"
+                              : "border-[#6B716D]"
                           }`}
                         >
                           {isSelected && <Check className="w-3 h-3" />}
                         </div>
                         <div>
-                          <div className="text-base font-bold uppercase tracking-wide text-[#111315]">
+                          <div className="text-base font-bold uppercase tracking-wide text-[#1D2521]">
                             {cat.title}
                           </div>
-                          <p className="text-xs text-[#64748B] mt-1 leading-relaxed">
+                          <p className="text-xs text-[#6B716D] mt-1 leading-relaxed">
                             {cat.tagline}
                           </p>
-                          <span className="inline-block mt-3 text-[10px] uppercase font-bold tracking-wider text-[#C8753D]">
-                            {cat.count} Pre-Engineered Blueprints
+                          <span className="inline-block mt-3 text-[10px] uppercase font-bold tracking-wider text-[#B82025]">
+                            {cat.count} Pre-Engineered Plans
                           </span>
                         </div>
                       </div>
@@ -226,14 +223,14 @@ export default function QuoteWizard() {
             {step === 2 && (
               <div className="space-y-6 animate-in fade-in duration-200">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8753D]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
                     Step 02 of 06
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#111315] mt-1 font-display">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
                     Select Base Architectural Model
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#64748B] mt-1">
-                    Showing available models under <span className="text-[#C8753D] font-semibold">{category}</span>.
+                  <p className="text-xs sm:text-sm text-[#6B716D] mt-1">
+                    Showing available models under <span className="text-[#B82025] font-semibold">{category}</span>.
                   </p>
                 </div>
 
@@ -249,11 +246,11 @@ export default function QuoteWizard() {
                         }}
                         className={`cursor-pointer rounded-sm border overflow-hidden transition-all duration-300 ${
                           isSelected
-                            ? "bg-[#F3EFE6] border-[#C8753D] ring-1 ring-[#C8753D] shadow-md"
-                            : "bg-[#FAF8F5] border-[#E5E0D4] hover:border-[#C8753D]"
+                            ? "bg-[#F7F4EC] border-[#B82025] ring-1 ring-[#B82025] shadow-md"
+                            : "bg-white border-[#E5E0D4] hover:border-[#17352A]"
                         }`}
                       >
-                        <div className="relative aspect-[16/10] w-full bg-[#E5E0D4]">
+                        <div className="relative aspect-[16/10] w-full bg-[#F7F4EC]">
                           <Image
                             src={m.primaryImage}
                             alt={m.name}
@@ -261,24 +258,24 @@ export default function QuoteWizard() {
                             className="object-cover"
                             sizes="(max-width: 768px) 100vw, 33vw"
                           />
-                          <div className="absolute top-2 right-2 px-2 py-0.5 text-[10px] font-bold bg-white/90 text-[#111315] rounded-xs shadow-xs">
+                          <div className="absolute top-2 right-2 px-2 py-0.5 text-[10px] font-bold bg-white/95 text-[#1D2521] rounded-xs shadow-xs">
                             {formatCurrency(m.startingPrice)}
                           </div>
                         </div>
 
                         <div className="p-4 space-y-2">
                           <div className="flex items-center justify-between">
-                            <span className="text-[10px] font-bold uppercase text-[#C8753D]">
+                            <span className="text-[10px] font-bold uppercase text-[#B82025]">
                               {m.series}
                             </span>
-                            <span className="text-xs text-[#64748B] font-semibold">
+                            <span className="text-xs text-[#6B716D] font-semibold">
                               {m.sqft} SQ FT
                             </span>
                           </div>
-                          <div className="text-sm font-bold uppercase text-[#111315]">
+                          <div className="text-sm font-bold uppercase text-[#1D2521]">
                             {m.name}
                           </div>
-                          <div className="text-xs text-[#64748B]">
+                          <div className="text-xs text-[#6B716D]">
                             {m.bedrooms > 0 ? `${m.bedrooms} Bed • ${m.bathrooms} Bath` : "Commercial Clear Span"}
                           </div>
                         </div>
@@ -293,32 +290,32 @@ export default function QuoteWizard() {
             {step === 3 && (
               <div className="space-y-6 animate-in fade-in duration-200 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8753D]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
                     Step 03 of 06
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#111315] mt-1 font-display">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
                     Customize Square Footage
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+                  <p className="text-xs sm:text-sm text-[#6B716D] mt-1">
                     Scale your footprint. The structural frame price automatically adjusts dynamically.
                   </p>
                 </div>
 
-                <div className="bg-[#FAF8F5] border border-[#E5E0D4] p-8 rounded-sm text-center space-y-6 shadow-xs">
+                <div className="bg-[#F7F4EC] border border-[#E5E0D4] p-8 rounded-sm text-center space-y-6 shadow-xs">
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#64748B]">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#6B716D]">
                       Selected Model:
                     </span>
-                    <div className="text-xl font-bold uppercase text-[#111315] mt-0.5">
+                    <div className="text-xl font-bold uppercase text-[#1D2521] mt-0.5">
                       {selectedModel.name}
                     </div>
                   </div>
 
                   <div className="py-4">
-                    <div className="text-5xl sm:text-6xl font-extrabold text-[#111315] font-display">
-                      {new Intl.NumberFormat("en-IN").format(sqft)}
+                    <div className="text-5xl sm:text-6xl font-black text-[#1D2521] font-display">
+                      {new Intl.NumberFormat("en-US").format(sqft)}
                     </div>
-                    <div className="text-sm font-bold uppercase tracking-widest text-[#C8753D] mt-2">
+                    <div className="text-sm font-bold uppercase tracking-widest text-[#B82025] mt-2">
                       SQUARE FEET
                     </div>
                   </div>
@@ -327,31 +324,31 @@ export default function QuoteWizard() {
                   <div className="space-y-2">
                     <input
                       type="range"
-                      min={800}
-                      max={8000}
+                      min={400}
+                      max={6000}
                       step={50}
                       value={sqft}
                       onChange={(e) => setSqft(Number(e.target.value))}
-                      className="w-full accent-[#C8753D] cursor-pointer"
+                      className="w-full accent-[#B82025] cursor-pointer"
                     />
-                    <div className="flex justify-between text-xs text-[#64748B]">
-                      <span>800 SQ FT (Compact)</span>
-                      <span>2,400 SQ FT (Standard)</span>
-                      <span>8,000 SQ FT (Large Estate)</span>
+                    <div className="flex justify-between text-xs text-[#6B716D]">
+                      <span>400 SQ FT (Compact)</span>
+                      <span>1,200 SQ FT (Cabin)</span>
+                      <span>6,000 SQ FT (Large Estate)</span>
                     </div>
                   </div>
 
                   {/* Quick Preset Buttons */}
                   <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
-                    {[1200, 1850, 2400, 3200, 4800, 6000].map((preset) => (
+                    {[650, 1200, 1850, 2200, 2800, 3500].map((preset) => (
                       <button
                         key={preset}
                         type="button"
                         onClick={() => setSqft(preset)}
                         className={`px-3 py-1 text-xs font-semibold rounded-xs border transition-colors ${
                           sqft === preset
-                            ? "bg-[#C8753D] text-white border-[#C8753D]"
-                            : "bg-white text-[#111315] border-[#E5E0D4] hover:bg-[#F3EFE6]"
+                            ? "bg-[#B82025] text-white border-[#B82025]"
+                            : "bg-white text-[#1D2521] border-[#E5E0D4] hover:bg-[#17352A] hover:text-white"
                         }`}
                       >
                         {preset} SQ FT
@@ -366,13 +363,13 @@ export default function QuoteWizard() {
             {step === 4 && (
               <div className="space-y-6 animate-in fade-in duration-200">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8753D]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
                     Step 04 of 06
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#111315] mt-1 font-display">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
                     Select Upgrades & Packages
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+                  <p className="text-xs sm:text-sm text-[#6B716D] mt-1">
                     Add factory-engineered porches, insulation, garage bays, or glass walls.
                   </p>
                 </div>
@@ -386,31 +383,31 @@ export default function QuoteWizard() {
                         onClick={() => toggleOption(opt.id)}
                         className={`cursor-pointer p-4 rounded-sm border transition-all duration-200 flex items-start justify-between gap-4 ${
                           isSelected
-                            ? "bg-[#F3EFE6] border-[#C8753D] shadow-xs"
-                            : "bg-[#FAF8F5] border-[#E5E0D4] hover:border-[#C8753D]"
+                            ? "bg-[#F7F4EC] border-[#B82025] shadow-xs"
+                            : "bg-white border-[#E5E0D4] hover:border-[#17352A]"
                         }`}
                       >
                         <div className="flex items-start gap-3">
                           <div
                             className={`w-5 h-5 rounded-xs border mt-0.5 flex items-center justify-center shrink-0 ${
                               isSelected
-                                ? "border-[#C8753D] bg-[#C8753D] text-white"
-                                : "border-[#94A3B8]"
+                                ? "border-[#B82025] bg-[#B82025] text-white"
+                                : "border-[#6B716D]"
                             }`}
                           >
                             {isSelected && <Check className="w-3 h-3" />}
                           </div>
                           <div>
-                            <div className="text-sm font-bold uppercase text-[#111315]">
+                            <div className="text-sm font-bold uppercase text-[#1D2521]">
                               {opt.name}
                             </div>
-                            <p className="text-xs text-[#64748B] mt-0.5 leading-relaxed">
+                            <p className="text-xs text-[#6B716D] mt-0.5 leading-relaxed">
                               {opt.desc}
                             </p>
                           </div>
                         </div>
 
-                        <div className="text-xs font-bold text-[#C8753D] shrink-0">
+                        <div className="text-xs font-bold text-[#B82025] shrink-0">
                           +{formatCurrency(opt.price)}
                         </div>
                       </div>
@@ -424,36 +421,36 @@ export default function QuoteWizard() {
             {step === 5 && (
               <div className="space-y-6 animate-in fade-in duration-200 max-w-3xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8753D]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
                     Step 05 of 06
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#111315] mt-1 font-display">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
                     Your Structural Estimate
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+                  <p className="text-xs sm:text-sm text-[#6B716D] mt-1">
                     Based on your selected model footprint, square footage, and chosen upgrades.
                   </p>
                 </div>
 
-                <div className="bg-[#FAF8F5] border border-[#E5E0D4] p-6 sm:p-8 rounded-sm space-y-6 shadow-xs">
+                <div className="bg-[#F7F4EC] border border-[#E5E0D4] p-6 sm:p-8 rounded-sm space-y-6 shadow-xs">
                   {/* Big Price Display */}
                   <div className="text-center py-4 border-b border-[#E5E0D4]">
-                    <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#64748B]">
-                      Estimated Build Cost
+                    <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#6B716D]">
+                      Estimated Shell Cost
                     </span>
-                    <div className="text-4xl sm:text-6xl font-extrabold text-[#111315] font-display mt-2 text-copper-glow">
+                    <div className="text-4xl sm:text-6xl font-black text-[#1D2521] font-display mt-2">
                       {formatCurrency(calculation.totalEstimate)}
                     </div>
-                    <div className="text-xs text-[#C8753D] font-bold mt-1">
+                    <div className="text-xs text-[#B82025] font-bold mt-1">
                       Approx. {formatCurrency(Math.round(calculation.totalEstimate / sqft))} / SQ FT
                     </div>
                   </div>
 
                   {/* Breakdown Table */}
                   <div className="space-y-3 text-sm">
-                    <div className="flex justify-between text-[#111315]">
+                    <div className="flex justify-between text-[#1D2521]">
                       <span>
-                        {selectedModel.name} ({new Intl.NumberFormat("en-IN").format(sqft)} SQ FT Engineered Shell)
+                        {selectedModel.name} ({new Intl.NumberFormat("en-US").format(sqft)} SQ FT Engineered Shell)
                       </span>
                       <span className="font-bold">{formatCurrency(calculation.sizeAdjustedPrice)}</span>
                     </div>
@@ -462,19 +459,19 @@ export default function QuoteWizard() {
                       const opt = AVAILABLE_OPTIONS.find((o) => o.id === optId);
                       if (!opt) return null;
                       return (
-                        <div key={optId} className="flex justify-between text-xs text-[#64748B]">
+                        <div key={optId} className="flex justify-between text-xs text-[#6B716D]">
                           <span>+ {opt.name}</span>
-                          <span className="text-[#C8753D] font-bold">+{formatCurrency(opt.price)}</span>
+                          <span className="text-[#B82025] font-bold">+{formatCurrency(opt.price)}</span>
                         </div>
                       );
                     })}
                   </div>
 
                   {/* Disclaimer */}
-                  <div className="p-4 bg-white border border-[#E5E0D4] rounded-sm text-[11px] text-[#64748B] leading-relaxed flex items-start gap-3 shadow-xs">
-                    <ShieldAlert className="w-4 h-4 text-[#C8753D] shrink-0 mt-0.5" />
+                  <div className="p-4 bg-white border border-[#E5E0D4] rounded-sm text-[11px] text-[#6B716D] leading-relaxed flex items-start gap-3 shadow-xs">
+                    <ShieldAlert className="w-4 h-4 text-[#B82025] shrink-0 mt-0.5" />
                     <span>
-                      This is an estimated price. Final pricing may vary based on location, customization, snow/wind engineering calculations, and other project requirements. Stamped engineering blueprints will be validated upon regional review.
+                      This is an estimated price. Final pricing may vary based on delivery distance, site soil conditions, regional snow/wind engineering calculations, and interior finish selections.
                     </span>
                   </div>
                 </div>
@@ -485,20 +482,20 @@ export default function QuoteWizard() {
             {step === 6 && (
               <form onSubmit={handleSubmit} className="space-y-6 animate-in fade-in duration-200 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8753D]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
                     Step 06 of 06
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#111315] mt-1 font-display">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
                     Finalize & Lock Your Estimate
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+                  <p className="text-xs sm:text-sm text-[#6B716D] mt-1">
                     Provide your delivery location and contact information to receive the full itemized spec packet.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#111315] mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#1D2521] mb-1">
                       Full Name *
                     </label>
                     <input
@@ -507,12 +504,12 @@ export default function QuoteWizard() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. John Anderson"
-                      className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+                      className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#111315] mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#1D2521] mb-1">
                       Email Address *
                     </label>
                     <input
@@ -521,12 +518,12 @@ export default function QuoteWizard() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="john@example.com"
-                      className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+                      className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#111315] mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#1D2521] mb-1">
                       Phone Number *
                     </label>
                     <input
@@ -535,33 +532,33 @@ export default function QuoteWizard() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="(555) 000-0000"
-                      className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+                      className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#111315] mb-1">
-                      Build Site PIN/ZIP Code *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#1D2521] mb-1">
+                      Build Site ZIP Code *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.zip}
                       onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
-                      placeholder="e.g. 560001"
-                      className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+                      placeholder="e.g. 78701"
+                      className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#111315] mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#1D2521] mb-1">
                     Target Build Timeline
                   </label>
                   <select
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm cursor-pointer"
+                    className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm cursor-pointer"
                   >
                     <option value="Ready Immediately">Ready Immediately (Have Land & Permits)</option>
                     <option value="3-6 months">3 to 6 months</option>
@@ -571,7 +568,7 @@ export default function QuoteWizard() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#111315] mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#1D2521] mb-1">
                     Special Requests or Site Conditions (Optional)
                   </label>
                   <textarea
@@ -579,14 +576,14 @@ export default function QuoteWizard() {
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     placeholder="Tell us about your property, slope, crane access or desired custom modifications..."
-                    className="w-full bg-[#FAF8F5] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#C8753D] rounded-sm"
+                    className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-4 bg-[#C8753D] hover:bg-[#BA642C] text-white text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-[#B82025] hover:bg-[#8F171C] text-white text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>Request My Official Estimate Packet</span>
                     <ArrowRight className="w-4 h-4" />
@@ -601,7 +598,7 @@ export default function QuoteWizard() {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="px-5 py-2.5 bg-[#FAF8F5] hover:bg-[#F3EFE6] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#111315] rounded-sm transition-colors flex items-center gap-2"
+                  className="px-5 py-2.5 bg-[#F7F4EC] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#1D2521] rounded-sm transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Back
@@ -614,7 +611,7 @@ export default function QuoteWizard() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-6 py-2.5 bg-[#C8753D] hover:bg-[#BA642C] text-xs font-bold uppercase tracking-wider text-white rounded-sm transition-all duration-200 flex items-center gap-2 shadow-sm"
+                  className="px-6 py-2.5 bg-[#B82025] hover:bg-[#8F171C] text-xs font-bold uppercase tracking-wider text-white rounded-sm transition-all duration-200 flex items-center gap-2 shadow-sm cursor-pointer"
                 >
                   <span>Continue</span>
                   <ArrowRight className="w-4 h-4" />
@@ -630,49 +627,49 @@ export default function QuoteWizard() {
             </div>
 
             <div>
-              <div className="text-xs font-bold uppercase tracking-[0.25em] text-[#C8753D]">
+              <div className="text-xs font-bold uppercase tracking-[0.25em] text-[#B82025]">
                 Quote Request Received
               </div>
-              <h3 className="text-3xl font-extrabold uppercase tracking-tight text-[#111315] mt-1 font-display">
+              <h3 className="text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
                 Estimate Successfully Generated
               </h3>
-              <p className="text-sm text-[#64748B] mt-2 leading-relaxed">
-                Thank you, <span className="text-[#111315] font-semibold">{formData.name || "friend"}</span>. We have generated an initial structural engineering estimate for your <span className="text-[#C8753D] font-bold">{sqft} SQ FT {selectedModel.name}</span>.
+              <p className="text-sm text-[#6B716D] mt-2 leading-relaxed">
+                Thank you, <span className="text-[#1D2521] font-semibold">{formData.name || "friend"}</span>. We have generated an initial structural engineering estimate for your <span className="text-[#B82025] font-bold">{sqft} SQ FT {selectedModel.name}</span>.
               </p>
             </div>
 
-            <div className="bg-[#FAF8F5] border border-[#E5E0D4] p-5 rounded-sm text-left space-y-2">
-              <div className="flex justify-between text-xs text-[#64748B]">
+            <div className="bg-[#F7F4EC] border border-[#E5E0D4] p-5 rounded-sm text-left space-y-2">
+              <div className="flex justify-between text-xs text-[#6B716D]">
                 <span>Reference ID:</span>
-                <span className="font-mono text-[#111315] font-bold">VTX-{Math.floor(100000 + Math.random() * 900000)}</span>
+                <span className="font-mono text-[#1D2521] font-bold">VTX-{Math.floor(100000 + Math.random() * 900000)}</span>
               </div>
-              <div className="flex justify-between text-xs text-[#64748B]">
+              <div className="flex justify-between text-xs text-[#6B716D]">
                 <span>Estimated Shell Cost:</span>
-                <span className="font-bold text-[#111315]">{formatCurrency(calculation.totalEstimate)}</span>
+                <span className="font-bold text-[#1D2521]">{formatCurrency(calculation.totalEstimate)}</span>
               </div>
-              <div className="flex justify-between text-xs text-[#64748B]">
+              <div className="flex justify-between text-xs text-[#6B716D]">
                 <span>Recipient:</span>
-                <span className="text-[#111315] font-medium">{formData.email || "Email pending"}</span>
+                <span className="text-[#1D2521] font-medium">{formData.email || "Email pending"}</span>
               </div>
             </div>
 
-            <p className="text-xs text-[#64748B]">
+            <p className="text-xs text-[#6B716D]">
               A structural engineering specialist will review your local wind/snow specs and reach out within 1 business day.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <button
                 onClick={handleReset}
-                className="w-full sm:w-auto px-5 py-2.5 bg-white hover:bg-[#FAF8F5] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#111315] rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
+                className="w-full sm:w-auto px-5 py-2.5 bg-white hover:bg-[#F7F4EC] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#1D2521] rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 Build Another Quote
               </button>
               <Link
-                href="/models"
-                className="w-full sm:w-auto px-6 py-2.5 bg-[#C8753D] hover:bg-[#BA642C] text-xs font-bold uppercase tracking-wider text-white rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
+                href="/buildings"
+                className="w-full sm:w-auto px-6 py-2.5 bg-[#B82025] hover:bg-[#8F171C] text-xs font-bold uppercase tracking-wider text-white rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
               >
-                Explore More Models
+                Explore More Buildings
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
