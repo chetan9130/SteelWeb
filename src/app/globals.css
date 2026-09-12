@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
+@theme {
+  --color-charcoal: #111315;
+  --color-graphite: #1E293B;
+  --color-slate-cool: #F1F5F9;
+  --color-slate-border: #E2E8F0;
+  --color-warm-white: #FAF8F5;
+  --color-warm-cream: #F3EFE6;
+  --color-warm-surface: #FFFFFF;
+  --color-sand: #B8A37E;
+  --color-sand-light: #EFE8DC;
+  --color-copper: #C8753D;
+  --color-copper-hover: #BA642C;
+  --color-muted-gray: #64748B;
+  --color-border-light: #E5E0D4;
+  --color-border-subtle: #EDE8DF;
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF8F5;
+  --foreground: #111315;
+  --card: #FFFFFF;
+  --card-border: #E5E0D4;
+  --copper: #C8753D;
+  --sand: #B8A37E;
+  --muted: #64748B;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAF8F5;
+  color: #111315;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar - Light Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5CEBE;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8753D;
+}
+
+/* Selection */
+::selection {
+  background: #C8753D;
+  color: #FFFFFF;
+}
+
+/* Subtle architectural grid pattern utility for Light Theme */
+.bg-architectural-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.text-copper-glow {
+  text-shadow: 0 0 20px rgba(200, 117, 61, 0.25);
 }
