@@ -16,7 +16,7 @@ export default function Footer() {
               <div className="relative h-10 sm:h-12 w-auto flex items-center transition-transform group-hover:scale-105">
                 <Image
                   src="/logo.jpeg"
-                  alt="Amish Built Cabins"
+                  alt="Amish Built Cabins, LLC"
                   width={140}
                   height={84}
                   className="h-9 sm:h-11 w-auto object-contain"
@@ -27,13 +27,17 @@ export default function Footer() {
                   AMISH BUILT<span className="text-[#B82025]">.</span>CABINS
                 </span>
                 <span className="text-[8px] uppercase tracking-[0.2em] text-[#6B716D] font-bold mt-1">
-                  Buildings & Cabins
+                  Amish Built Cabins, LLC
                 </span>
               </div>
             </Link>
 
+            <p className="text-xs text-[#1D2521] font-medium italic">
+              &ldquo;Building a Better Way to Live — One Amish-Built Cabin at a Time.&rdquo;
+            </p>
+
             <p className="text-xs text-[#6B716D] leading-relaxed">
-              Crafting premium architectural steel buildings, barndominiums, cabins, and tiny homes built for lasting durability, comfort, and nationwide delivery.
+              Specializing in Amish-built and modular housing solutions, cabins, barndominiums, steel homes, and custom builds delivered across the United States.
             </p>
 
             <div className="flex items-center gap-2 pt-2">
@@ -76,71 +80,85 @@ export default function Footer() {
           {/* Column 2: Quick Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
-              Quick Links
+              Navigation
             </h4>
             <ul className="space-y-2 text-xs text-[#6B716D]">
               <li><Link href="/" className="hover:text-[#B82025] transition-colors">Home</Link></li>
-              <li><Link href="/buildings?category=Cabins" className="hover:text-[#B82025] transition-colors">Cabins</Link></li>
-              <li><Link href="/buildings?category=Tiny+Homes" className="hover:text-[#B82025] transition-colors">Tiny Homes</Link></li>
-              <li><Link href="/buildings?category=Steel+Buildings" className="hover:text-[#B82025] transition-colors">Steel Buildings</Link></li>
-              <li><Link href="/upload-floor-plan" className="hover:text-[#B82025] transition-colors">Floor Plans</Link></li>
-              <li><Link href="/videos" className="hover:text-[#B82025] transition-colors">Videos</Link></li>
-              <li><Link href="/#blog" className="hover:text-[#B82025] transition-colors">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Our Company */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
-              Our Company
-            </h4>
-            <ul className="space-y-2 text-xs text-[#6B716D]">
               <li><Link href="/about" className="hover:text-[#B82025] transition-colors">About Us</Link></li>
-              <li><Link href="/about#process" className="hover:text-[#B82025] transition-colors">Our Process</Link></li>
-              <li><Link href="/about#quality" className="hover:text-[#B82025] transition-colors">Quality Standards</Link></li>
-              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">Financing</Link></li>
-              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">FAQs</Link></li>
-              <li><Link href="/#testimonials" className="hover:text-[#B82025] transition-colors">Testimonials</Link></li>
-              <li><Link href="/buildings" className="hover:text-[#B82025] transition-colors">Gallery</Link></li>
-              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">Terms of Service</Link></li>
+              <li><Link href="/buildings?category=Cabins" className="hover:text-[#B82025] transition-colors">Cabins</Link></li>
+              <li><Link href="/buildings?category=Cabins" className="hover:text-[#B82025] transition-colors">Modular Homes</Link></li>
+              <li><Link href="/buildings?category=Barndominiums" className="hover:text-[#B82025] transition-colors">Barndominiums</Link></li>
+              <li><Link href="/buildings?category=Steel+Buildings" className="hover:text-[#B82025] transition-colors">Steel Homes</Link></li>
+              <li><Link href="/upload-floor-plan" className="hover:text-[#B82025] transition-colors">House Plans</Link></li>
+              <li><Link href="/contact#financing" className="hover:text-[#B82025] transition-colors">Financing</Link></li>
+              <li><Link href="/contact#faqs" className="hover:text-[#B82025] transition-colors">FAQs</Link></li>
+              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Our Buildings */}
+          {/* Column 3: Housing Solutions */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
-              Our Buildings
+              Housing Solutions
             </h4>
             <ul className="space-y-2 text-xs text-[#6B716D]">
-              <li><Link href="/buildings?category=Cabins" className="hover:text-[#B82025] transition-colors">Cabins</Link></li>
-              <li><Link href="/buildings?category=Tiny+Homes" className="hover:text-[#B82025] transition-colors">Tiny Homes</Link></li>
-              <li><Link href="/buildings?category=Building+Kits" className="hover:text-[#B82025] transition-colors">Steel House Kits</Link></li>
-              <li><Link href="/buildings?category=Barndominiums" className="hover:text-[#B82025] transition-colors">Barndominiums</Link></li>
-              <li><Link href="/buildings?category=Sheds+%26+More" className="hover:text-[#B82025] transition-colors">Sheds & More</Link></li>
-              <li><Link href="/upload-floor-plan" className="hover:text-[#B82025] transition-colors">Custom Options</Link></li>
-              <li><Link href="/quote" className="hover:text-[#B82025] transition-colors">Instant Quote</Link></li>
+              <li><Link href="/buildings?category=Cabins" className="hover:text-[#B82025] transition-colors">Amish-Built Cabins</Link></li>
+              <li><Link href="/buildings?category=Cabins" className="hover:text-[#B82025] transition-colors">Modular & Turnkey Cabins</Link></li>
+              <li><Link href="/buildings?category=Cabins" className="hover:text-[#B82025] transition-colors">Rustic Cabins</Link></li>
+              <li><Link href="/buildings?category=Tiny+Homes" className="hover:text-[#B82025] transition-colors">Tiny Homes & ADUs</Link></li>
+              <li><Link href="/buildings?category=Barndominiums" className="hover:text-[#B82025] transition-colors">Custom Barndominiums</Link></li>
+              <li><Link href="/buildings?category=Steel+Buildings" className="hover:text-[#B82025] transition-colors">Steel Homes & Kits</Link></li>
+              <li><Link href="/upload-floor-plan" className="hover:text-[#B82025] transition-colors">Custom Floor Plans</Link></li>
+              <li><Link href="/quote" className="hover:text-[#B82025] transition-colors">Instant Quote Calculator</Link></li>
             </ul>
           </div>
 
-          {/* Column 5: Contact Us + Red CTA */}
+          {/* Column 4: Process & Support */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+              Customer Support
+            </h4>
+            <ul className="space-y-2 text-xs text-[#6B716D]">
+              <li><Link href="/about#process" className="hover:text-[#B82025] transition-colors">How The Process Works</Link></li>
+              <li><Link href="/about#site-prep" className="hover:text-[#B82025] transition-colors">Site Preparation Guide</Link></li>
+              <li><Link href="/about#customization" className="hover:text-[#B82025] transition-colors">Customization Options</Link></li>
+              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">Cabin Pricing & Quotes</Link></li>
+              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">Delivery & Installation</Link></li>
+              <li><Link href="/contact" className="hover:text-[#B82025] transition-colors">Project Consultation</Link></li>
+              <li><Link href="/videos" className="hover:text-[#B82025] transition-colors">Video Tours</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 5: Contact Us + Official Info */}
           <div className="space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
               Contact Us
             </h4>
             <div className="space-y-2.5 text-xs text-[#6B716D]">
-              <div className="flex items-start gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#B82025] shrink-0 mt-0.5" />
-                <span>(800) 555-STEEL / (512) 890-4400</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#B82025] shrink-0 mt-0.5" />
-                <span>sales@amishbuiltcabins.com</span>
+              <div>
+                <span className="font-bold text-[#1D2521] block">Amish Built Cabins, LLC</span>
+                <span>AmishBuiltCabins.com</span>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#B82025] shrink-0 mt-0.5" />
-                <span>4800 Ironwood Parkway, Austin, TX 78701</span>
+                <span>677 S. Cardinal Lane<br />Scottsburg, Indiana 47170, USA</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Phone className="w-3.5 h-3.5 text-[#B82025] shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <a href="tel:8125954033" className="hover:text-[#B82025] transition-colors font-medium block">
+                    (812) 595-4033
+                  </a>
+                  <a href="tel:18005131675" className="hover:text-[#B82025] transition-colors block text-[11px]">
+                    Toll-Free: 1-800-513-1675 ext. 1
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#B82025] shrink-0 mt-0.5" />
+                <a href="mailto:amishbuiltbuildings@gmail.com" className="hover:text-[#B82025] transition-colors break-all">
+                  amishbuiltbuildings@gmail.com
+                </a>
               </div>
             </div>
 
@@ -149,7 +167,7 @@ export default function Footer() {
                 href="/quote"
                 className="w-full py-3 px-4 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-md"
               >
-                <span>Get a Quote</span>
+                <span>Request a Quote</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -160,7 +178,7 @@ export default function Footer() {
       {/* Bottom Copyright Bar - Mirrored Dark Green matching Header top bar */}
       <div className="bg-[#17352A] text-white/80 border-t border-[#234A3A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p>© 2026 Amish Built Cabins & Buildings. All rights reserved.</p>
+          <p>© 2026 Amish Built Cabins, LLC. All rights reserved. • AmishBuiltCabins.com</p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Terms & Conditions</Link>

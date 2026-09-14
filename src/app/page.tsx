@@ -15,7 +15,10 @@ import {
   Layers,
   FileCheck,
   Headphones,
-  Wrench
+  Wrench,
+  Phone,
+  Mail,
+  MapPin
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import BuildingCard from "@/components/BuildingCard";
@@ -46,103 +49,170 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* 3. HERO SECTION */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#17352A] pt-40 sm:pt-48 md:pt-52 pb-24 md:pb-32">
-        {/* Background Architectural Cabin Photo with Multi-Layer Gradient */}
+      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-[#17352A] pt-24 sm:pt-28 md:pt-32 pb-14 md:pb-16">
+        {/* Background Architectural Photo with Project Deep Green Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=2400&q=85"
-            alt="Handcrafted Amish Built Cabin and Timber Home"
+            src="/hero-modern-home.jpg"
+            alt="Modern Luxury Modular & Prefab Home"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center filter brightness-[0.65] contrast-[1.08] scale-100 transition-transform duration-1000"
+            className="object-cover object-[70%_center] sm:object-center filter brightness-[0.85] contrast-[1.08]"
           />
-          {/* Deep cinematic overlay for contrast and readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#17352A]/90 via-black/60 to-[#17352A]/95" />
-          <div className="absolute inset-0 bg-architectural-grid opacity-15 pointer-events-none" />
+          {/* Left-to-right deep brand green overlay (#17352A / #0F241C) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#17352A] via-[#17352A]/90 to-transparent w-full md:w-[72%] lg:w-[60%]" />
+          {/* Top & bottom subtle atmospheric vignettes */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#17352A]/80 via-transparent to-[#17352A]/90 pointer-events-none" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          {/* Eyebrow Badge */}
-          {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/95 text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] mb-6 backdrop-blur-md shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#B82025] animate-pulse"></span>
-            <span>Authentic Heritage Craft • Built For Generations</span>
-          </div> */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-2xl lg:max-w-3xl text-left flex flex-col items-start">
+            
+            {/* Eyebrow Tagline matching brand theme */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#F7F4EC] text-[11px] font-bold uppercase tracking-[0.22em] mb-5 backdrop-blur-md shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#B82025] animate-pulse"></span>
+              <span>Amish Built Cabins, LLC • Handcrafted Heritage</span>
+            </div>
 
-          {/* Large Confident Heading */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-[1.05] font-display max-w-4xl drop-shadow-xl">
-            BUILD A SPACE <br className="hidden sm:inline" />
-            <span className="text-[#F7F4EC]">THAT FEELS LIKE HOME.</span>
-          </h1>
+            {/* Main Headline (Project Palette: Pure White + Heritage Cream / Crimson) */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black uppercase tracking-tight text-white leading-[0.98] drop-shadow-2xl font-display">
+              <span>HANDCRAFTED CABINS.</span>
+              <span className="block text-[#F7F4EC] mt-1 sm:mt-1.5">BUILT FOR GENERATIONS.</span>
+            </h1>
 
-          {/* Supporting Text */}
-          <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg text-white/90 max-w-2xl font-body leading-relaxed font-normal drop-shadow-md">
-            Handcrafted Amish cabins, luxury barndominiums, tiny homes, and engineered clear-span steel buildings delivered nationwide with timeless durability.
-          </p>
+            {/* Supporting Text */}
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-white/90 max-w-xl font-normal leading-relaxed drop-shadow-md font-body">
+              Authentic Amish-crafted cabins, modular homes, and custom barndominiums—combining traditional American woodworking with modern comfort, precision engineering, and nationwide delivery.
+            </p>
 
-          {/* Trust Highlights Strip */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-white/80 font-medium">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
-              Solid Timber & Steel
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
-              Licensed Wet-Stamped Plans
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
-              Nationwide Job Site Delivery
-            </span>
-          </div>
+            {/* 3 Value Pillars Strip */}
+            <div className="mt-8 sm:mt-10 flex items-stretch gap-4 sm:gap-7 md:gap-9">
+              {/* Pillar 1: Authentic Craftsmanship */}
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2.5 max-w-[125px] sm:max-w-[150px]">
+                <div className="w-10 h-10 rounded-sm bg-white/10 border border-white/20 flex items-center justify-center text-[#F7F4EC] shadow-xs">
+                  <svg className="w-6 h-6 stroke-current" viewBox="0 0 36 36" fill="none" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 15.5L18 4l14 11.5V31H4V15.5z" />
+                    <path d="M18 12l-4.5 5.5h2.5l-3.5 5.5h11l-3.5-5.5H22z" />
+                    <line x1="18" y1="23" x2="18" y2="27" />
+                  </svg>
+                </div>
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white leading-tight">
+                  Authentic Amish<br />Craftsmanship
+                </div>
+              </div>
 
-          {/* CTA Buttons */}
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-            {/* Primary Red CTA */}
-            <Link
-              href="#categories"
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-xl flex items-center justify-center gap-2 group hover:scale-[1.02]"
-            >
-              <span>Explore Our Buildings</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+              {/* Vertical Divider */}
+              <div className="w-[1px] bg-white/25 self-stretch my-1" />
 
-            {/* Secondary White CTA */}
-            <Link
-              href="/quote"
-              className="w-full sm:w-auto px-8 py-3.5 bg-white hover:bg-[#F7F4EC] text-[#1D2521] hover:text-[#B82025] border border-white/20 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02]"
-            >
-              <span>Get an Instant Quote</span>
-            </Link>
-          </div>
+              {/* Pillar 2: Modular Efficiency */}
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2.5 max-w-[125px] sm:max-w-[150px]">
+                <div className="w-10 h-10 rounded-sm bg-white/10 border border-white/20 flex items-center justify-center text-[#F7F4EC] shadow-xs">
+                  <svg className="w-6 h-6 stroke-current" viewBox="0 0 36 36" fill="none" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="18" cy="18" r="13" />
+                    <polyline points="18 11 18 18 23 18" />
+                    <line x1="18" y1="6" x2="18" y2="8" />
+                    <line x1="30" y1="18" x2="28" y2="18" />
+                    <line x1="18" y1="30" x2="18" y2="28" />
+                    <line x1="6" y1="18" x2="8" y2="18" />
+                  </svg>
+                </div>
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white leading-tight">
+                  Efficient Modular<br />Construction
+                </div>
+              </div>
 
-          {/* Secondary Action: ▶ Watch Video */}
-          <div className="mt-6">
-            <button
-              onClick={() => setSelectedVideo(VIDEOS_DATA[0])}
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/85 hover:text-white transition-colors group cursor-pointer"
-            >
-              <span className="w-7 h-7 rounded-full bg-white/20 border border-white/30 group-hover:bg-[#B82025] group-hover:border-[#B82025] flex items-center justify-center text-white transition-all group-hover:scale-110 shadow-sm">
-                <Play className="w-3 h-3 ml-0.5 fill-current" />
-              </span>
-              <span>Watch Video Tour (2 Min)</span>
-            </button>
+              {/* Vertical Divider */}
+              <div className="w-[1px] bg-white/25 self-stretch my-1" />
+
+              {/* Pillar 3: Transparent Pricing & Support */}
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2.5 max-w-[125px] sm:max-w-[150px]">
+                <div className="w-10 h-10 rounded-sm bg-white/10 border border-white/20 flex items-center justify-center text-[#F7F4EC] shadow-xs">
+                  <svg className="w-6 h-6 stroke-current" viewBox="0 0 36 36" fill="none" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 5s9 3.5 11 5.5v9c0 8-11 12.5-11 12.5S7 27.5 7 19.5v-9c2-2 11-5.5 11-5.5z" />
+                    <polyline points="13 18 17 22 23 15" />
+                  </svg>
+                </div>
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white leading-tight">
+                  Transparent Pricing<br />& Support
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive CTAs using Project Brand Colors (#B82025 & #FFFFFF) */}
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <Link
+                href="#categories"
+                className="px-7 py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-xl flex items-center gap-2 group hover:scale-[1.02]"
+              >
+                <span>Explore Models</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/quote"
+                className="px-7 py-3.5 bg-white hover:bg-[#F7F4EC] text-[#1D2521] hover:text-[#B82025] text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all duration-200 flex items-center gap-2 shadow-lg hover:scale-[1.02]"
+              >
+                <span>Get An Instant Quote</span>
+              </Link>
+              <button
+                onClick={() => setSelectedVideo(VIDEOS_DATA[0])}
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90 hover:text-white transition-colors group cursor-pointer ml-1"
+              >
+                <span className="w-8 h-8 rounded-full bg-white/15 border border-white/30 group-hover:bg-[#B82025] group-hover:border-[#B82025] flex items-center justify-center text-white transition-all group-hover:scale-110 shadow-sm">
+                  <Play className="w-3.5 h-3.5 ml-0.5 fill-current" />
+                </span>
+                <span className="hidden sm:inline">Watch Tour</span>
+              </button>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 4. EXPLORE OUR BUILDINGS (5 Category Cards in 5-col / 4-col / 2-col) */}
+      {/* BRAND POSITIONING BANNER */}
+      <section className="bg-[#17352A] text-white py-6 border-y border-[#234A3A]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="space-y-1">
+            <span className="text-[11px] uppercase tracking-[0.25em] text-[#C89446] font-bold">
+              Amish Built Cabins, LLC • Scottsburg, Indiana
+            </span>
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white font-display">
+              &ldquo;Building a Better Way to Live — One Amish-Built Cabin at a Time.&rdquo;
+            </h2>
+            <p className="text-xs text-white/80">
+              Combining traditional craftsmanship with modern modular comfort across the United States.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href="tel:8125954033"
+              className="px-5 py-2.5 bg-[#C89446] hover:bg-[#B38038] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center gap-1.5"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>(812) 595-4033</span>
+            </a>
+            <Link
+              href="/contact"
+              className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors border border-white/25"
+            >
+              Support & Inquiries
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. EXPLORE OUR BUILDINGS & MAIN PRODUCTS / SERVICES */}
       <section id="categories" className="py-20 sm:py-24 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeading
-            title="EXPLORE OUR BUILDINGS"
-            subtitle="Find the perfect building for your land, lifestyle and budget."
+            eyebrow="Main Products & Services"
+            title="EXPLORE OUR BUILDINGS & HOUSING SOLUTIONS"
+            subtitle="AmishBuiltCabins.com specializes in handcrafted Amish-built, modular, and prefabricated housing solutions delivered nationwide."
             align="center"
           />
 
+          {/* Top 5 Primary Visual Categories */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 mt-10">
             {CATEGORIES.map((cat) => (
               <CategoryCard
@@ -155,6 +225,50 @@ export default function HomePage() {
                 href={cat.href}
               />
             ))}
+          </div>
+
+          {/* 12 Official Products & Services Grid */}
+          <div className="mt-14 pt-12 border-t border-[#E5E0D4] text-left">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h3 className="text-2xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
+                Comprehensive Building Catalog & Solutions
+              </h3>
+              <p className="text-xs sm:text-sm text-[#6B716D] mt-2">
+                Handcrafted in partnership with Amish, Mennonite, and trusted builder communities.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {[
+                { title: "Amish-Built Cabins", desc: "Handcrafted cabins designed with traditional Amish craftsmanship and modern functionality." },
+                { title: "Modular Cabins", desc: "Factory-built modular cabins designed for efficient construction, transportation and installation." },
+                { title: "Turnkey Cabins", desc: "Move-in-ready cabin solutions with completed interior and exterior components." },
+                { title: "Rustic Cabins", desc: "Traditional cabin designs featuring rustic materials, covered porches and classic cabin aesthetics." },
+                { title: "Modular Homes", desc: "Modern modular housing solutions that can be customized according to customer requirements." },
+                { title: "Prefab Homes", desc: "Prefabricated housing systems designed to simplify and accelerate the construction process." },
+                { title: "Tiny Homes", desc: "Compact residential spaces designed for efficient and comfortable living." },
+                { title: "Barndominiums", desc: "Customizable residential structures combining living spaces with large utility or workshop areas." },
+                { title: "Steel Homes", desc: "Durable steel-frame residential structures with modern designs and customizable layouts." },
+                { title: "House Kits", desc: "Panelized and prefabricated home kits containing structural components required for construction." },
+                { title: "House Plans", desc: "Residential floor plans and home designs ranging from compact homes to larger family residences." },
+                { title: "Backyard Studios / ADUs", desc: "Flexible spaces suitable for guest houses, home offices, rental units, studios, workshops, and additional living space." },
+              ].map((service, index) => (
+                <div
+                  key={index}
+                  className="p-5 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm hover:border-[#B82025] transition-colors space-y-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#B82025] group-hover:scale-125 transition-transform" />
+                    <h4 className="text-sm font-bold uppercase tracking-tight text-[#1D2521] font-display">
+                      {service.title}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-[#6B716D] leading-relaxed pl-4">
+                    {service.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -353,57 +467,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. HOW IT WORKS (Horizontal 4-Step Process) */}
-      <section className="py-20 sm:py-24 bg-white border-b border-[#E5E0D4]">
+      {/* 8. HOW THE PROCESS WORKS (9-Step Customer Journey) */}
+      <section id="process" className="py-20 sm:py-24 bg-white border-b border-[#E5E0D4] scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeading
-            eyebrow="Our Process"
-            title="HOW IT WORKS"
-            subtitle="From first inspiration to turnkey keys in hand, we make building simple and stress-free."
+            eyebrow="Customer Journey"
+            title="HOW THE PROCESS WORKS"
+            subtitle="From first inspiration to turnkey keys in hand, we make your cabin and modular home journey seamless and transparent."
             align="center"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mt-12 text-left">
             {[
-              {
-                step: "01",
-                title: "Choose",
-                desc: "Select your building type and customize your options.",
-                icon: Layers,
-              },
-              {
-                step: "02",
-                title: "Get Instant Quote",
-                desc: "Use our quote tool or upload your floor plan.",
-                icon: FileCheck,
-              },
-              {
-                step: "03",
-                title: "Talk to Our Team",
-                desc: "We'll review your requirements and answer your questions.",
-                icon: Headphones,
-              },
-              {
-                step: "04",
-                title: "Delivery & Setup",
-                desc: "We deliver nationwide and provide setup guidance.",
-                icon: Wrench,
-              },
+              { num: "01", title: "Browse Designs", desc: "Explore our diverse portfolio of handcrafted Amish cabins, modular homes, and barndominiums online." },
+              { num: "02", title: "Choose Your Model", desc: "Select the architectural layout, footprint, and bedroom/bathroom count that fits your lifestyle." },
+              { num: "03", title: "Discuss Customization", desc: "Collaborate with our team to customize finishes, interior floor plans, porches, and architectural features." },
+              { num: "04", title: "Request Pricing", desc: "Receive transparent, itemized pricing and comprehensive specifications for your chosen package." },
+              { num: "05", title: "Prepare Your Site", desc: "Get your property ready with foundation, site grading, utility hookups, and required local permits." },
+              { num: "06", title: "Manufacturing / Construction", desc: "Your cabin or modular home is built with precision by experienced Amish, Mennonite, and trusted craftspeople." },
+              { num: "07", title: "Delivery", desc: "Coordinated transport delivers your completed cabin or modular components safely to your job site." },
+              { num: "08", title: "Installation", desc: "Our installation support team ensures proper anchoring, leveling, and structural assembly." },
+              { num: "09", title: "Final Completion", desc: "Final walkthrough, finish trim, and handover—ready for you to move in and enjoy for generations." },
             ].map((s) => (
               <div
-                key={s.step}
-                className="bg-[#F7F4EC] border border-[#E5E0D4] p-6 sm:p-7 rounded-sm relative flex flex-col justify-between hover:border-[#17352A] transition-colors"
+                key={s.num}
+                className="bg-[#F7F4EC] border border-[#E5E0D4] p-6 rounded-sm relative flex flex-col justify-between hover:border-[#B82025] transition-colors group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-3xl font-black font-display text-[#B82025]">
-                      {s.step}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-2xl font-black font-display text-[#B82025]">
+                      {s.num}
                     </span>
-                    <div className="w-10 h-10 rounded-full bg-white border border-[#E5E0D4] flex items-center justify-center text-[#B82025] shadow-2xs">
-                      <s.icon className="w-5 h-5" />
-                    </div>
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#6B716D] bg-white px-2.5 py-0.5 border border-[#E5E0D4] rounded-xs">
+                      Step {s.num}
+                    </span>
                   </div>
-                  <h3 className="text-lg font-bold uppercase tracking-tight text-[#1D2521] font-display">
+                  <h3 className="text-base font-bold uppercase tracking-tight text-[#1D2521] font-display group-hover:text-[#B82025] transition-colors">
                     {s.title}
                   </h3>
                   <p className="text-xs text-[#6B716D] mt-2 leading-relaxed font-body">
@@ -412,6 +511,166 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8B. CUSTOMIZATION OPTIONS SECTION */}
+      <section id="customization" className="py-20 sm:py-24 bg-[#F7F4EC] border-b border-[#E5E0D4] scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Tailored To Your Lifestyle"
+            title="CUSTOMIZE YOUR DESIGN"
+            subtitle="Customers can customize available designs depending on the selected model. Build exactly what you envision."
+            align="left"
+          />
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 mt-10">
+            {[
+              { title: "Floor Plans", desc: "Adjust interior walls, master suites, cathedral lofts, and room dimensions." },
+              { title: "Layouts", desc: "Open-concept living or traditional floor plans tailored to your property orientation." },
+              { title: "Exterior Finishes", desc: "Board-and-batten, authentic timber siding, rustic logs, or steel siding." },
+              { title: "Interior Finishes", desc: "Hand-finished tongue-and-groove pine, modern sheetrock, or timber accents." },
+              { title: "Flooring", desc: "Luxury vinyl plank, solid hardwood, durable laminate, or finished concrete." },
+              { title: "Kitchen", desc: "Solid wood cabinetry, quartz or granite countertops, island bars, and sink options." },
+              { title: "Bathroom", desc: "Custom vanities, walk-in tile showers, premium fixtures, and soaker tubs." },
+              { title: "Windows", desc: "Double-pane insulated glass, architectural black grids, and picture view windows." },
+              { title: "Doors", desc: "Craftsman solid wood entries, insulated fiberglass, and panoramic sliding patio doors." },
+              { title: "Roofing", desc: "Commercial standing-seam metal roofs or architectural 30-year shingles." },
+              { title: "Colors", desc: "Extensive selection of exterior stains, paints, trim, and roof accent colors." },
+              { title: "Additional Upgrades", desc: "Covered wrap-around porches, solar hookup packages, spray foam insulation, and HVAC." },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="p-5 bg-white border border-[#E5E0D4] rounded-sm space-y-1.5 shadow-2xs hover:border-[#B82025] transition-colors"
+              >
+                <div className="w-2 h-2 rounded-full bg-[#B82025] mb-2" />
+                <h4 className="text-sm font-bold uppercase tracking-tight text-[#1D2521] font-display">
+                  {item.title}
+                </h4>
+                <p className="text-xs text-[#6B716D] leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8C. SITE PREPARATION (Informational Guide) */}
+      <section id="site-prep" className="py-20 sm:py-24 bg-white border-b border-[#E5E0D4] scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+                <span>Property Readiness Guide</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
+                Site Preparation Requirements
+              </h2>
+              <p className="text-sm text-[#6B716D] leading-relaxed">
+                Before your new cabin or modular home is delivered, you may need to prepare your property. Proper site prep guarantees structural integrity, smooth transport delivery, and swift utility hookups.
+              </p>
+
+              {/* Callout Box */}
+              <div className="p-4 bg-[#F7F4EC] border-l-4 border-[#B82025] rounded-r-sm text-xs text-[#1D2521] font-medium leading-relaxed">
+                <strong>Please Note:</strong> Exact site preparation requirements depend on your property location, local soil bearing conditions, and the selected building model.
+              </div>
+
+              {/* Checklist Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                {[
+                  { title: "Foundation", desc: "Engineered concrete slab, crawlspace stem walls, or concrete pier runner systems." },
+                  { title: "Land Preparation", desc: "Tree removal, site clearing, leveling, and adequate water drainage grading." },
+                  { title: "Utility Connections", desc: "Electrical service, municipal water or private well, and city sewer or septic." },
+                  { title: "Site Access", desc: "Clear roadway access, overhead power line clearance, and trailer turn-around space." },
+                  { title: "Permits & Zoning", desc: "Local building permits, setback compliance, and county zoning approvals." },
+                  { title: "Delivery Coordination", desc: "Direct route planning and scheduled delivery window with our transport team." },
+                ].map((req, i) => (
+                  <div key={i} className="p-3.5 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm space-y-1">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-[#1D2521]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#B82025] shrink-0" />
+                      <span>{req.title}</span>
+                    </div>
+                    <p className="text-[11px] text-[#6B716D] pl-5 leading-normal">
+                      {req.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Card: Consultation Support */}
+            <div className="lg:col-span-5">
+              <div className="p-8 bg-[#17352A] text-white rounded-sm space-y-5 shadow-xl">
+                <div className="text-xs uppercase font-bold tracking-widest text-[#C89446]">
+                  Customer Support Consultation
+                </div>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-white font-display">
+                  Questions About Site Prep or Pricing?
+                </h3>
+                <p className="text-xs text-white/80 leading-relaxed">
+                  Our project specialists in Scottsburg, Indiana are available to guide you through foundation specs, floor plans, zoning questions, and instant pricing quotes.
+                </p>
+
+                <div className="space-y-3 pt-3 border-t border-white/15 text-xs">
+                  <div className="flex items-start gap-2.5">
+                    <MapPin className="w-4 h-4 text-[#C89446] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-white block">Amish Built Cabins, LLC</span>
+                      <span className="text-white/80">677 S. Cardinal Lane, Scottsburg, Indiana 47170</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <Phone className="w-4 h-4 text-[#C89446] shrink-0" />
+                    <div className="space-x-2">
+                      <a href="tel:8125954033" className="font-bold text-white hover:text-[#C89446] underline decoration-white/40">
+                        (812) 595-4033
+                      </a>
+                      <span className="text-white/40">|</span>
+                      <a href="tel:18005131675" className="text-white/80 hover:text-white">
+                        Toll-Free: 1-800-513-1675 ext. 1
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <Mail className="w-4 h-4 text-[#C89446] shrink-0" />
+                    <a href="mailto:amishbuiltbuildings@gmail.com" className="text-white hover:text-[#C89446] underline decoration-white/40 break-all">
+                      amishbuiltbuildings@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 pt-2">
+                  <a
+                    href="tel:8125954033"
+                    className="px-4 py-2.5 bg-[#C89446] hover:bg-[#B38038] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors"
+                  >
+                    Call Us
+                  </a>
+                  <a
+                    href="mailto:amishbuiltbuildings@gmail.com"
+                    className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/25 text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors"
+                  >
+                    Email Us
+                  </a>
+                  <Link
+                    href="/quote"
+                    className="px-4 py-2.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors"
+                  >
+                    Request a Quote
+                  </Link>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=677+S+Cardinal+Lane,+Scottsburg,+IN+47170"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/25 text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors"
+                  >
+                    Get Directions
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

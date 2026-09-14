@@ -47,11 +47,15 @@ export default function QuotePage() {
 
         {/* Assistive footer callout */}
         <div className="mt-16 text-center text-xs text-[#6B716D]">
-          Prefer to speak directly with an engineering estimator? Call us toll-free at{" "}
-          <a href="tel:18005557833" className="text-[#B82025] font-bold hover:underline">
-            (800) 555-STEEL
+          Prefer to speak directly with an estimator? Call us at{" "}
+          <a href="tel:8125954033" className="text-[#B82025] font-bold hover:underline">
+            (812) 595-4033
           </a>{" "}
-          (Monday–Friday 7am–6pm CST).
+          or Toll-Free at{" "}
+          <a href="tel:18005131675" className="text-[#B82025] font-bold hover:underline">
+            1-800-513-1675 ext. 1
+          </a>{" "}
+          (Monday–Friday 7am–6pm).
         </div>
       </div>
     </div>

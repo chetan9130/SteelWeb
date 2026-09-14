@@ -48,55 +48,142 @@ export default function ContactPage() {
 
             {/* Direct Channels */}
             <div className="space-y-4 pt-2 border-t border-[#E5E0D4]">
+              {/* Company Identity */}
+              <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm shadow-xs space-y-1">
+                <div className="text-xs uppercase font-bold text-[#B82025] tracking-wider">Official Company Information</div>
+                <div className="text-lg font-black text-[#1D2521] font-display">Amish Built Cabins, LLC</div>
+                <div className="text-xs text-[#6B716D] font-medium">AmishBuiltCabins.com</div>
+                <p className="text-xs text-[#1D2521] italic pt-1">
+                  &ldquo;Building a Better Way to Live — One Amish-Built Cabin at a Time.&rdquo;
+                </p>
+              </div>
+
+              {/* Phone Channels */}
               <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm flex items-start gap-4 shadow-xs">
                 <div className="p-2.5 rounded-sm bg-white text-[#B82025] shrink-0 border border-[#E5E0D4]">
                   <Phone className="w-5 h-5" />
                 </div>
-                <div>
-                  <div className="text-xs uppercase font-bold text-[#6B716D]">Toll-Free Phone</div>
-                  <a href="tel:18005557833" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                    (800) 555-STEEL
-                  </a>
-                  <div className="text-[11px] text-[#6B716D]">Direct: (512) 890-4400</div>
+                <div className="space-y-1">
+                  <div className="text-xs uppercase font-bold text-[#6B716D]">Phone Numbers</div>
+                  <div className="flex flex-col">
+                    <a href="tel:8125954033" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
+                      Direct: (812) 595-4033
+                    </a>
+                    <a href="tel:18005131675" className="text-sm font-semibold text-[#1D2521] hover:text-[#B82025] transition-colors">
+                      Toll-Free: 1-800-513-1675 ext. 1
+                    </a>
+                  </div>
                 </div>
               </div>
 
+              {/* Email Channel */}
               <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm flex items-start gap-4 shadow-xs">
                 <div className="p-2.5 rounded-sm bg-white text-[#B82025] shrink-0 border border-[#E5E0D4]">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs uppercase font-bold text-[#6B716D]">Engineering & Quotes</div>
-                  <a href="mailto:sales@amishbuiltcabins.com" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                    sales@amishbuiltcabins.com
+                  <div className="text-xs uppercase font-bold text-[#6B716D]">Email Support & Quotes</div>
+                  <a href="mailto:amishbuiltbuildings@gmail.com" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors break-all">
+                    amishbuiltbuildings@gmail.com
                   </a>
-                  <div className="text-[11px] text-[#6B716D]">Avg response time: under 4 business hours</div>
+                  <div className="text-[11px] text-[#6B716D]">Prompt assistance with pricing, plans & consultations</div>
                 </div>
               </div>
 
+              {/* Address Channel */}
               <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm flex items-start gap-4 shadow-xs">
                 <div className="p-2.5 rounded-sm bg-white text-[#B82025] shrink-0 border border-[#E5E0D4]">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs uppercase font-bold text-[#6B716D]">Manufacturing & Headquarters</div>
-                  <div className="text-sm font-semibold text-[#1D2521]">
-                    4800 Ironwood Parkway, Austin, TX 78701
+                  <div className="text-xs uppercase font-bold text-[#6B716D]">Headquarters & Facility</div>
+                  <div className="text-sm font-bold text-[#1D2521]">
+                    677 S. Cardinal Lane
                   </div>
-                  <div className="text-[11px] text-[#6B716D]">Nationwide delivery across all 50 states</div>
+                  <div className="text-xs text-[#6B716D]">
+                    Scottsburg, Indiana 47170, USA
+                  </div>
+                  <div className="text-[11px] text-[#B82025] font-semibold mt-0.5">
+                    Delivering Handcrafted Cabins & Homes Nationwide
+                  </div>
                 </div>
               </div>
 
-              <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm flex items-start gap-4 shadow-xs">
-                <div className="p-2.5 rounded-sm bg-white text-[#B82025] shrink-0 border border-[#E5E0D4]">
-                  <Clock className="w-5 h-5" />
+              {/* Quick Action Buttons Strip */}
+              <div className="grid grid-cols-2 gap-2.5 pt-2">
+                <a
+                  href="tel:8125954033"
+                  className="px-4 py-3 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#C89446]" />
+                  <span>Call Us</span>
+                </a>
+                <a
+                  href="mailto:amishbuiltbuildings@gmail.com"
+                  className="px-4 py-3 bg-[#F7F4EC] hover:bg-white text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#B82025]" />
+                  <span>Email Us</span>
+                </a>
+                <a
+                  href="/quote"
+                  className="px-4 py-3 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                >
+                  <span>Request a Quote</span>
+                </a>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=677+S+Cardinal+Lane,+Scottsburg,+IN+47170"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-3 bg-[#F7F4EC] hover:bg-white text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-[#B82025]" />
+                  <span>Get Directions</span>
+                </a>
+              </div>
+
+              {/* Customer Support Topics Guide */}
+              <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm space-y-2 mt-4">
+                <div className="text-xs uppercase font-bold text-[#1D2521] tracking-wider">
+                  What You Can Contact Our Team For:
                 </div>
-                <div>
-                  <div className="text-xs uppercase font-bold text-[#6B716D]">Operating Hours</div>
-                  <div className="text-sm font-semibold text-[#1D2521]">
-                    Monday – Friday: 7:00 AM – 6:00 PM CST
+                <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs text-[#6B716D]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span>Cabin pricing</span>
                   </div>
-                  <div className="text-[11px] text-[#6B716D]">Saturday: 9:00 AM – 2:00 PM (By Appointment)</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span>Product information</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span>Custom designs</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span>Floor plans</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span>Financing information</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span>Delivery information</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span>Installation support</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span>Site preparation</span>
+                  </div>
+                  <div className="col-span-2 flex items-center gap-1.5 pt-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B82025]"></span>
+                    <span className="font-semibold text-[#1D2521]">General project consultation</span>
+                  </div>
                 </div>
               </div>
             </div>

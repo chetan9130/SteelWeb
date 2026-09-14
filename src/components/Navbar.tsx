@@ -54,21 +54,31 @@ export default function Navbar() {
         <div className="bg-[#17352A] text-white/90 text-xs py-2 px-4 sm:px-6 lg:px-8 border-b border-[#234A3A]">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             {/* Left: Phone & Email */}
-            <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-3 sm:gap-5 flex-wrap">
               <a
-                href="tel:18005557833"
+                href="tel:8125954033"
                 className="flex items-center gap-1.5 hover:text-white transition-colors"
+                title="Direct Phone"
               >
                 <Phone className="w-3.5 h-3.5 text-[#B82025]" />
-                <span className="font-semibold tracking-wide">(800) 555-STEEL</span>
+                <span className="font-semibold tracking-wide">(812) 595-4033</span>
+              </a>
+              <span className="hidden md:inline-block text-white/30">•</span>
+              <a
+                href="tel:18005131675"
+                className="hidden md:flex items-center gap-1.5 hover:text-white transition-colors text-[11px]"
+                title="Toll-Free Phone"
+              >
+                <span className="text-white/70">Toll-Free:</span>
+                <span className="font-semibold tracking-wide">1-800-513-1675 ext. 1</span>
               </a>
               <span className="hidden sm:inline-block text-white/30">•</span>
               <a
-                href="mailto:sales@amishbuiltcabins.com"
+                href="mailto:amishbuiltbuildings@gmail.com"
                 className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-[#B82025]" />
-                <span>sales@amishbuiltcabins.com</span>
+                <span>amishbuiltbuildings@gmail.com</span>
               </a>
             </div>
 
@@ -258,13 +268,26 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="pt-6 border-t border-[#E5E0D4] space-y-3">
+          <div className="pt-6 border-t border-[#E5E0D4] space-y-2.5">
             <a
-              href="tel:18005557833"
-              className="flex items-center justify-center gap-2 py-3 bg-[#F7F4EC] text-[#1D2521] rounded-sm text-xs font-bold uppercase tracking-wider"
+              href="tel:8125954033"
+              className="flex items-center justify-center gap-2 py-2.5 bg-[#F7F4EC] text-[#1D2521] rounded-sm text-xs font-bold uppercase tracking-wider"
             >
               <Phone className="w-4 h-4 text-[#B82025]" />
-              (800) 555-STEEL
+              (812) 595-4033
+            </a>
+            <a
+              href="tel:18005131675"
+              className="flex items-center justify-center gap-2 py-2 bg-[#F7F4EC] text-[#6B716D] rounded-sm text-[11px] font-semibold tracking-wider"
+            >
+              Toll-Free: 1-800-513-1675 ext. 1
+            </a>
+            <a
+              href="mailto:amishbuiltbuildings@gmail.com"
+              className="flex items-center justify-center gap-2 py-2 text-xs text-[#6B716D] hover:text-[#B82025]"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#B82025]" />
+              amishbuiltbuildings@gmail.com
             </a>
             <Link
               href="/quote"
