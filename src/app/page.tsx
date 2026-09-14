@@ -71,9 +71,9 @@ export default function HomePage() {
           <div className="max-w-2xl lg:max-w-3xl text-left flex flex-col items-start">
             
             {/* Eyebrow Tagline matching brand theme */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#F7F4EC] text-[11px] font-bold uppercase tracking-[0.22em] mb-5 backdrop-blur-md shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#B82025] animate-pulse"></span>
-              <span>Amish Built Cabins, LLC • Handcrafted Heritage</span>
+            <div className="inline-flex items-center gap-2  border border-white/20 text-[#F7F4EC] text-[11px] font-bold uppercase tracking-[0.22em] mb-5 backdrop-blur-md shadow-xs">
+              {/* <span className="w-2 h-2 rounded-full bg-[#B82025] animate-pulse"></span>
+              <span>Amish Built Cabins, LLC • Handcrafted Heritage</span> */}
             </div>
 
             {/* Main Headline (Project Palette: Pure White + Heritage Cream / Crimson) */}
