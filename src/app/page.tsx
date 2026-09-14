@@ -186,11 +186,11 @@ export default function HomePage() {
           </div>
           <div className="flex items-center gap-3 shrink-0">
             <a
-              href="tel:8125954033"
+              href="tel:9403438103"
               className="px-5 py-2.5 bg-[#C89446] hover:bg-[#B38038] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center gap-1.5"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>(812) 595-4033</span>
+              <span>9403438103</span>
             </a>
             <Link
               href="/contact"
@@ -624,32 +624,32 @@ export default function HomePage() {
                   <div className="flex items-center gap-2.5">
                     <Phone className="w-4 h-4 text-[#C89446] shrink-0" />
                     <div className="space-x-2">
-                      <a href="tel:8125954033" className="font-bold text-white hover:text-[#C89446] underline decoration-white/40">
-                        (812) 595-4033
+                      <a href="tel:9403438103" className="font-bold text-white hover:text-[#C89446] underline decoration-white/40">
+                        9403438103
                       </a>
                       <span className="text-white/40">|</span>
-                      <a href="tel:18005131675" className="text-white/80 hover:text-white">
-                        Toll-Free: 1-800-513-1675 ext. 1
+                      <a href="tel:9403438103" className="text-white/80 hover:text-white">
+                        Toll-Free: 9403438103
                       </a>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Mail className="w-4 h-4 text-[#C89446] shrink-0" />
-                    <a href="mailto:amishbuiltbuildings@gmail.com" className="text-white hover:text-[#C89446] underline decoration-white/40 break-all">
-                      amishbuiltbuildings@gmail.com
+                    <a href="mailto:abc@gmail.com" className="text-white hover:text-[#C89446] underline decoration-white/40 break-all">
+                      abc@gmail.com
                     </a>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 pt-2">
                   <a
-                    href="tel:8125954033"
+                    href="tel:9403438103"
                     className="px-4 py-2.5 bg-[#C89446] hover:bg-[#B38038] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors"
                   >
                     Call Us
                   </a>
                   <a
-                    href="mailto:amishbuiltbuildings@gmail.com"
+                    href="mailto:abc@gmail.com"
                     className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/25 text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors"
                   >
                     Email Us

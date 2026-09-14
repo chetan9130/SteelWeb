@@ -146,18 +146,18 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#B82025] shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
-                  <a href="tel:8125954033" className="hover:text-[#B82025] transition-colors font-medium block">
-                    (812) 595-4033
+                  <a href="tel:9403438103" className="hover:text-[#B82025] transition-colors font-medium block">
+                    9403438103
                   </a>
-                  <a href="tel:18005131675" className="hover:text-[#B82025] transition-colors block text-[11px]">
-                    Toll-Free: 1-800-513-1675 ext. 1
+                  <a href="tel:9403438103" className="hover:text-[#B82025] transition-colors block text-[11px]">
+                    Toll-Free: 9403438103
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#B82025] shrink-0 mt-0.5" />
-                <a href="mailto:amishbuiltbuildings@gmail.com" className="hover:text-[#B82025] transition-colors break-all">
-                  amishbuiltbuildings@gmail.com
+                <a href="mailto:abc@gmail.com" className="hover:text-[#B82025] transition-colors break-all">
+                  abc@gmail.com
                 </a>
               </div>
             </div>

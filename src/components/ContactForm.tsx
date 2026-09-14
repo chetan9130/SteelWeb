@@ -92,7 +92,7 @@ export default function ContactForm() {
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            placeholder="john@domain.com"
+            placeholder="abc@gmail.com"
             className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
           />
         </div>
@@ -106,7 +106,7 @@ export default function ContactForm() {
             required
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            placeholder="(555) 000-0000"
+            placeholder="9403438103"
             className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
           />
         </div>

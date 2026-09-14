@@ -190,11 +190,11 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
                 <div className="grid grid-cols-2 gap-3">
                   <a
-                    href="tel:8125954033"
+                    href="tel:9403438103"
                     className="py-3 bg-white hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#B82025]" />
-                    <span>Call (812) 595-4033</span>
+                    <span>Call 9403438103</span>
                   </a>
 
                   <Link

@@ -66,11 +66,11 @@ export default function ContactPage() {
                 <div className="space-y-1">
                   <div className="text-xs uppercase font-bold text-[#6B716D]">Phone Numbers</div>
                   <div className="flex flex-col">
-                    <a href="tel:8125954033" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                      Direct: (812) 595-4033
+                    <a href="tel:9403438103" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
+                      Direct: 9403438103
                     </a>
-                    <a href="tel:18005131675" className="text-sm font-semibold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                      Toll-Free: 1-800-513-1675 ext. 1
+                    <a href="tel:9403438103" className="text-sm font-semibold text-[#1D2521] hover:text-[#B82025] transition-colors">
+                      Toll-Free: 9403438103
                     </a>
                   </div>
                 </div>
@@ -83,8 +83,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-xs uppercase font-bold text-[#6B716D]">Email Support & Quotes</div>
-                  <a href="mailto:amishbuiltbuildings@gmail.com" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors break-all">
-                    amishbuiltbuildings@gmail.com
+                  <a href="mailto:abc@gmail.com" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors break-all">
+                    abc@gmail.com
                   </a>
                   <div className="text-[11px] text-[#6B716D]">Prompt assistance with pricing, plans & consultations</div>
                 </div>
@@ -112,14 +112,14 @@ export default function ContactPage() {
               {/* Quick Action Buttons Strip */}
               <div className="grid grid-cols-2 gap-2.5 pt-2">
                 <a
-                  href="tel:8125954033"
+                  href="tel:9403438103"
                   className="px-4 py-3 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#C89446]" />
                   <span>Call Us</span>
                 </a>
                 <a
-                  href="mailto:amishbuiltbuildings@gmail.com"
+                  href="mailto:abc@gmail.com"
                   className="px-4 py-3 bg-[#F7F4EC] hover:bg-white text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#B82025]" />
