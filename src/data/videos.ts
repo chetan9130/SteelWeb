@@ -49,7 +49,7 @@ export const VIDEOS_DATA: VideoItem[] = [
     title: "Customer Story",
     category: "Customer Stories",
     duration: "6:15",
-    description: "Hear from real homeowners about their experience building with Amish Built Cabins.",
+    description: "Hear from real homeowners about their experience building with ModularHome.com.",
     thumbnail: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1200&q=80",
     views: "64K views",
     date: "3 weeks ago",

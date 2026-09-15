@@ -2,7 +2,7 @@ import AdminVideoManager from "@/components/AdminVideoManager";
 
 export const metadata = {
   title: "YouTube Video Management | Admin Dashboard",
-  description: "Manage automated YouTube channel sync, video categories, and website visibility for Amish Built Cabins.",
+  description: "Manage automated YouTube channel sync, video categories, and website visibility for ModularHome.com.",
 };
 
 export default function AdminVideosPage() {

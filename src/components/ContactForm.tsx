@@ -92,7 +92,7 @@ export default function ContactForm() {
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            placeholder="abc@gmail.com"
+            placeholder="support@modularhome.com"
             className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
           />
         </div>
@@ -106,7 +106,7 @@ export default function ContactForm() {
             required
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            placeholder="94034 38103"
+            placeholder="+1-812-595-4033"
             className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
           />
         </div>
@@ -135,12 +135,16 @@ export default function ContactForm() {
           onChange={(e) => setForm({ ...form, interest: e.target.value })}
           className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm cursor-pointer"
         >
-          <option value="Cabins">Modern & Rustic Cabins</option>
-          <option value="Tiny Homes">Turnkey Tiny Homes</option>
-          <option value="Barndominium">Barndominium & Residential Living</option>
-          <option value="Steel Buildings">Clear-Span Steel Buildings & Shops</option>
-          <option value="Sheds & More">Sheds & Utility Workshops</option>
-          <option value="Custom Blueprint">Custom Blueprint Conversion</option>
+          <option value="Modular Homes">Modular Homes</option>
+          <option value="Prefab Homes">Prefab Homes</option>
+          <option value="Barndominiums">Barndominiums</option>
+          <option value="House Kits">House Kits</option>
+          <option value="Tiny Homes">Tiny Homes</option>
+          <option value="Cabins">Cabins</option>
+          <option value="ADUs & Granny Pods">ADUs & Granny Pods</option>
+          <option value="A-Frame Homes">A-Frame Homes</option>
+          <option value="Commercial Buildings">Commercial Buildings</option>
+          <option value="Custom Homes">Custom Homes</option>
         </select>
       </div>
 

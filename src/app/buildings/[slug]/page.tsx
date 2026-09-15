@@ -15,10 +15,10 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const model = BUILDING_MODELS.find((m) => m.slug === slug);
-  if (!model) return { title: "Building Not Found | AMISH BUILT CABINS" };
+  if (!model) return { title: "Building Not Found | ModularHome.com" };
 
   return {
-    title: `${model.name} (${model.sqft} SQ FT) | AMISH BUILT CABINS`,
+    title: `${model.name} (${model.sqft} SQ FT) | ModularHome.com`,
     description: model.description,
   };
 }

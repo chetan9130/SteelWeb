@@ -2,8 +2,8 @@ import { ShieldCheck, Clock, Award } from "lucide-react";
 import QuoteWizard from "@/components/QuoteWizard";
 
 export const metadata = {
-  title: "Instant Building Quote Calculator | AMISH BUILT CABINS",
-  description: "Calculate custom estimates for your cabin, tiny home, barndominium, or clear-span steel building. Customize square footage and options for transparent pricing.",
+  title: "Instant Building Quote Calculator | ModularHome.com",
+  description: "Calculate custom estimates for your modular home, prefab, tiny home, barndominium, or cabin. Customize square footage and options for transparent pricing.",
 };
 
 export default function QuotePage() {
@@ -48,12 +48,12 @@ export default function QuotePage() {
         {/* Assistive footer callout */}
         <div className="mt-16 text-center text-xs text-[#6B716D]">
           Prefer to speak directly with an estimator? Call us at{" "}
-          <a href="tel:9403438103" className="text-[#B82025] font-bold hover:underline">
-            94034 38103
+          <a href="tel:+18125954033" className="text-[#B82025] font-bold hover:underline">
+            +1-812-595-4033
           </a>{" "}
           or Toll-Free at{" "}
-          <a href="tel:9403438103" className="text-[#B82025] font-bold hover:underline">
-            94034 38103
+          <a href="tel:+18125954033" className="text-[#B82025] font-bold hover:underline">
+            +1-812-595-4033
           </a>{" "}
           (Monday–Friday 7am–6pm).
         </div>

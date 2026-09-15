@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import VideosClient from "./VideosClient";
 
 export const metadata = {
-  title: "Cinematic Video Gallery & Building Tours | AMISH BUILT CABINS",
-  description: "Watch in-depth walkthroughs of our barndominiums, time-lapses of rigid steel frame erection, luxury interior finishes, and customer project stories.",
+  title: "Video Gallery & Home Tours | ModularHome.com",
+  description: "Watch in-depth walkthroughs of our modular homes, prefabs, barndominiums, cabins, and customer project stories.",
 };
 
 export default function VideosPage() {

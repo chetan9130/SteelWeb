@@ -19,29 +19,30 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Amish Built Cabins | Quality Buildings for a Better Tomorrow",
-  description: "Handcrafted with integrity, built to last. From cozy cabins to spacious barndominiums, we deliver quality buildings for your land, your lifestyle, and your future.",
+  title: "ModularHome.com | Modern Modular & Prefab Homes Marketplace",
+  description: "Discover, compare, customize, and request information about factory-built and modular housing solutions including modular homes, prefabs, barndominiums, cabins, ADUs, and custom floor plans.",
   keywords: [
-    "Amish Built Cabins",
-    "Cabins",
+    "ModularHome.com",
+    "Modular Homes",
+    "Prefab Homes",
     "Barndominiums",
-    "Sheds & Other Buildings",
-    "Lofted Cabins",
+    "Cabins",
+    "Tiny Homes",
+    "ADUs",
+    "A-Frame Homes",
     "Floor Plans",
-    "Modular Cabins",
-    "Handcrafted Cabins"
+    "Factory Built Homes"
   ],
   icons: {
     icon: [
-      { url: "/icon.png" },
       { url: "/logo.png" },
     ],
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
-    title: "Amish Built Cabins | Quality Buildings for a Better Tomorrow",
-    description: "Cabins, Barndominiums. A Simpler Way of Life. Handcrafted with integrity, built to last.",
+    title: "ModularHome.com | Modern Modular & Prefab Homes Marketplace",
+    description: "Discover, compare, customize, and request information about factory-built and modular housing solutions.",
     type: "website",
   },
 };

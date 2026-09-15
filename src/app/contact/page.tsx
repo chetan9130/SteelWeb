@@ -2,8 +2,8 @@ import { MapPin, Phone, Mail, Clock, HelpCircle } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact Our Engineering Team | AMISH BUILT CABINS",
-  description: "Connect with Amish Built Cabins' structural specialists, project estimators, and cabin designers. Request a quote or schedule a design consultation.",
+  title: "Contact Our Team | ModularHome.com",
+  description: "Connect with ModularHome.com housing specialists, project estimators, and designers. Request a quote or schedule a design consultation.",
 };
 
 const FAQS = [
@@ -51,10 +51,10 @@ export default function ContactPage() {
               {/* Company Identity */}
               <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm shadow-xs space-y-1">
                 <div className="text-xs uppercase font-bold text-[#B82025] tracking-wider">Official Company Information</div>
-                <div className="text-lg font-black text-[#1D2521] font-display">Amish Built Cabins, LLC</div>
-                <div className="text-xs text-[#6B716D] font-medium">AmishBuiltCabins.com</div>
+                <div className="text-lg font-black text-[#1D2521] font-display">ModularHome.com</div>
+                <div className="text-xs text-[#6B716D] font-medium">ModularHome.com</div>
                 <p className="text-xs text-[#1D2521] italic pt-1">
-                  &ldquo;Building a Better Way to Live — One Amish-Built Cabin at a Time.&rdquo;
+                  &ldquo;Discover, Compare & Customize Your Modular Home.&rdquo;
                 </p>
               </div>
 
@@ -66,11 +66,11 @@ export default function ContactPage() {
                 <div className="space-y-1">
                   <div className="text-xs uppercase font-bold text-[#6B716D]">Phone Numbers</div>
                   <div className="flex flex-col">
-                    <a href="tel:9403438103" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                      Direct: 94034 38103
+                    <a href="tel:+18125954033" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
+                      Direct: +1-812-595-4033
                     </a>
-                    <a href="tel:9403438103" className="text-sm font-semibold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                      Toll-Free: 94034 38103
+                    <a href="tel:+18125954033" className="text-sm font-semibold text-[#1D2521] hover:text-[#B82025] transition-colors">
+                      Toll-Free: +1-812-595-4033
                     </a>
                   </div>
                 </div>
@@ -83,8 +83,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-xs uppercase font-bold text-[#6B716D]">Email Support & Quotes</div>
-                  <a href="mailto:abc@gmail.com" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors break-all">
-                    abc@gmail.com
+                  <a href="mailto:support@modularhome.com" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors break-all">
+                    support@modularhome.com
                   </a>
                   <div className="text-[11px] text-[#6B716D]">Prompt assistance with pricing, plans & consultations</div>
                 </div>
@@ -104,7 +104,7 @@ export default function ContactPage() {
                     Scottsburg, Indiana 47170, USA
                   </div>
                   <div className="text-[11px] text-[#B82025] font-semibold mt-0.5">
-                    Delivering Handcrafted Cabins & Homes Nationwide
+                    Delivering Quality Modular Homes & Cabins Nationwide
                   </div>
                 </div>
               </div>
@@ -112,14 +112,14 @@ export default function ContactPage() {
               {/* Quick Action Buttons Strip */}
               <div className="grid grid-cols-2 gap-2.5 pt-2">
                 <a
-                  href="tel:9403438103"
+                  href="tel:+18125954033"
                   className="px-4 py-3 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#C89446]" />
                   <span>Call Us</span>
                 </a>
                 <a
-                  href="mailto:abc@gmail.com"
+                  href="mailto:support@modularhome.com"
                   className="px-4 py-3 bg-[#F7F4EC] hover:bg-white text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#B82025]" />

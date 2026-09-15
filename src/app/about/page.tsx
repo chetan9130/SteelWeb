@@ -12,8 +12,8 @@ import StatsSection from "@/components/StatsSection";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata = {
-  title: "About Amish Built Cabins | American Construction & Heritage Craft",
-  description: "Learn about Amish Built Cabins' architectural heritage, manufacturing philosophy, rigid-frame engineering standards, and American cabin craftsmanship.",
+  title: "About ModularHome.com | Modern Modular Housing Marketplace",
+  description: "Learn about ModularHome.com's manufacturing network, customizable floor plans, quality standards, and factory-built housing solutions.",
 };
 
 export default function AboutPage() {
@@ -25,17 +25,17 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-[#B82025] mb-4">
               <span className="w-2 h-2 rounded-full bg-[#B82025]"></span>
-              <span>Amish Built Cabins, LLC • About Our Company</span>
+              <span>ModularHome.com • About Our Company</span>
             </div>
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-[#1D2521] font-display leading-[0.95]">
               Building A Better <br />
               <span className="text-[#B82025]">Way To Live.</span>
             </h1>
             <p className="mt-4 text-base sm:text-lg text-[#1D2521] font-semibold italic">
-              &ldquo;Building a Better Way to Live — One Amish-Built Cabin at a Time.&rdquo;
+              &ldquo;Discover, Compare & Customize Your Modular Home.&rdquo;
             </p>
             <p className="mt-4 text-base sm:text-lg text-[#6B716D] leading-relaxed font-body">
-              AmishBuiltCabins.com specializes in Amish-built and modular housing solutions, combining traditional American craftsmanship with modern comfort, precision engineering, and transparent pricing.
+              ModularHome.com is a leading marketplace for modular and prefabricated housing solutions, combining factory precision engineering with modern architectural design and transparent pricing.
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function AboutPage() {
                 Traditional Craftsmanship Meets Modern Modular Innovation
               </h2>
               <p className="text-sm sm:text-base text-[#6B716D] leading-relaxed font-body">
-                Headquartered at 677 S. Cardinal Lane in Scottsburg, Indiana, <strong className="text-[#1D2521]">Amish Built Cabins, LLC</strong> works with Amish, Mennonite, and other trusted builder communities to provide handcrafted and customizable housing solutions to customers across the United States.
+                Headquartered at 677 S. Cardinal Lane in Scottsburg, Indiana, <strong className="text-[#1D2521]">ModularHome.com</strong> works with trusted builders and manufacturing partners to provide modular and customizable housing solutions to customers across the United States.
               </p>
               <p className="text-sm sm:text-base text-[#6B716D] leading-relaxed font-body">
                 We specialize in handcrafted cabins, modular homes, prefab homes, tiny homes, barndominiums, steel homes, panelized house kits, and custom residential structures. By combining time-tested carpentry with efficient modular and prefabricated construction methods, we deliver durable, energy-efficient homes faster and at honest, transparent prices.
@@ -251,7 +251,7 @@ export default function AboutPage() {
                 <div className="space-y-3 pt-2 border-t border-white/20 text-xs">
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Company:</span>
-                    <span className="font-semibold text-white">Amish Built Cabins, LLC</span>
+                    <span className="font-semibold text-white">ModularHome.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Address:</span>
@@ -259,15 +259,15 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Direct:</span>
-                    <a href="tel:9403438103" className="font-bold text-[#C89446] hover:underline">94034 38103</a>
+                    <a href="tel:+18125954033" className="font-bold text-[#C89446] hover:underline">+1-812-595-4033</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Toll-Free:</span>
-                    <a href="tel:9403438103" className="font-semibold text-white hover:underline">94034 38103</a>
+                    <a href="tel:+18125954033" className="font-semibold text-white hover:underline">+1-812-595-4033</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Email:</span>
-                    <a href="mailto:abc@gmail.com" className="font-semibold text-white hover:underline break-all">abc@gmail.com</a>
+                    <a href="mailto:support@modularhome.com" className="font-semibold text-white hover:underline break-all">support@modularhome.com</a>
                   </div>
                 </div>
 
@@ -303,14 +303,14 @@ export default function AboutPage() {
                 Handcrafted Durability Built for Generations
               </h3>
               <p className="text-xs sm:text-sm text-[#6B716D] leading-relaxed font-body">
-                Whether you select an Amish-crafted timber cabin, a factory-built modular home, or a heavy rigid-frame barndominium, every structure is constructed with uncompromised pride of workmanship and materials designed to withstand decades of weather.
+                Whether you select a timber cabin, a factory-built modular home, or a heavy rigid-frame barndominium, every structure is constructed with uncompromised pride of workmanship and materials designed to withstand decades of weather.
               </p>
               <div className="pt-2">
                 <Link
                   href="/quote"
                   className="px-6 py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors inline-flex items-center gap-2 shadow-xs"
                 >
-                  <span>Build With Amish Built Cabins, LLC</span>
+                  <span>Build With ModularHome.com</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

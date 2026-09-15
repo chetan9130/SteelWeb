@@ -2,8 +2,8 @@ import { FileCheck, Clock } from "lucide-react";
 import FloorPlanUploader from "@/components/FloorPlanUploader";
 
 export const metadata = {
-  title: "Upload Your Floor Plan | AMISH BUILT CABINS",
-  description: "Already have a blueprint or architectural drawing? Upload your plan for a complimentary steel frame engineering breakdown and custom bid package.",
+  title: "Upload Your Floor Plan | ModularHome.com",
+  description: "Already have a blueprint or architectural drawing? Upload your plan for a complimentary modular home engineering breakdown and custom bid package.",
 };
 
 export default function UploadFloorPlanPage() {

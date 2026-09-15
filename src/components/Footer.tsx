@@ -28,7 +28,7 @@ export default function Footer() {
               <div className="relative h-10 sm:h-12 w-auto flex items-center transition-transform group-hover:scale-105">
                 <Image
                   src="/logo.png"
-                  alt="Amish Built Cabins"
+                  alt="ModularHome.com"
                   width={160}
                   height={50}
                   className="h-10 sm:h-12 w-auto object-contain"
@@ -37,7 +37,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-xs text-[#6B716D] leading-relaxed max-w-sm">
-              Quality cabins, barndominiums and buildings built with integrity. Handcrafted for your land, your lifestyle, and your future.
+              Quality modular homes, prefabs, barndominiums, cabins, ADUs, and custom floor plans engineered for your land, your lifestyle, and your future.
             </p>
 
             {/* Social Icons */}
@@ -154,7 +154,7 @@ export default function Footer() {
       {/* Bottom Bar (Dark Green matching Header Top Utility Bar #17352A) */}
       <div className="bg-[#17352A] text-white/80 border-t border-[#234A3A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p>© {new Date().getFullYear()} Amish Built Cabins. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ModularHome.com. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Terms & Conditions</Link>

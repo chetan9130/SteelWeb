@@ -64,7 +64,7 @@ export default function Navbar() {
             <div className="flex items-center gap-4 sm:gap-6">
               {/* Phone Link */}
               <a
-                href="tel:9403438103"
+                href="tel:+18125954033"
                 className="flex items-center gap-2 group hover:text-white transition-colors"
               >
                 <div className="w-5 h-5 rounded-full bg-[#B82025] flex items-center justify-center text-white shadow-xs group-hover:scale-110 transition-transform">
@@ -72,7 +72,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="font-extrabold text-white text-xs sm:text-sm tracking-tight font-display">
-                    94034 38103
+                    +1-812-595-4033
                   </span>
                   <span className="text-white/60 text-[11px] hidden sm:inline font-normal">
                     (Mon–Fri 7am–6pm)
@@ -84,23 +84,12 @@ export default function Navbar() {
 
               {/* Email Link */}
               <a
-                href="mailto:abc@gmail.com"
+                href="mailto:support@modularhome.com"
                 className="hidden md:flex items-center gap-1.5 text-white/85 hover:text-white transition-colors text-xs"
               >
                 <Mail className="w-3.5 h-3.5 text-[#B82025]" />
-                <span className="font-medium">abc@gmail.com</span>
+                <span className="font-medium">support@modularhome.com</span>
               </a>
-
-              <span className="text-white/20 hidden lg:inline">•</span>
-
-              {/* Live Status Badge */}
-              <div className="hidden lg:flex items-center gap-2 text-[11px] text-white/70">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>Nationwide Amish-Built Delivery</span>
-              </div>
             </div>
 
             {/* Right: Social Media Icons + Quick Quote Button */}
@@ -167,7 +156,7 @@ export default function Navbar() {
               <div className="relative h-11 sm:h-14 w-auto flex items-center transition-transform group-hover:scale-105">
                 <Image
                   src="/logo.png"
-                  alt="Amish Built Cabins"
+                  alt="ModularHome.com"
                   width={180}
                   height={56}
                   className="h-10 sm:h-13 w-auto object-contain"
@@ -203,7 +192,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center space-x-3.5">
               {/* Phone Badge */}
               <a
-                href="tel:9403438103"
+                href="tel:+18125954033"
                 className="hidden xl:flex items-center gap-2.5 px-3 py-1.5 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm hover:border-[#17352A] transition-all group"
               >
                 <div className="p-1.5 bg-[#17352A] text-white rounded-2xs group-hover:bg-[#B82025] transition-colors">
@@ -212,7 +201,7 @@ export default function Navbar() {
                 <div className="flex flex-col text-left">
                   <span className="text-[10px] uppercase font-bold text-[#6B716D] leading-none">Questions? Call Us</span>
                   <span className="text-xs font-black text-[#17352A] font-display mt-0.5 group-hover:text-[#B82025] transition-colors">
-                    94034 38103
+                    +1-812-595-4033
                   </span>
                 </div>
               </a>
@@ -230,8 +219,8 @@ export default function Navbar() {
             {/* Mobile Actions: Phone Button + Hamburger */}
             <div className="flex lg:hidden items-center gap-2.5">
               <a
-                href="tel:9403438103"
-                aria-label="Call 94034 38103"
+                href="tel:+18125954033"
+                aria-label="Call +1-812-595-4033"
                 className="p-2 rounded-sm bg-[#17352A] text-white hover:bg-[#B82025] transition-colors flex items-center justify-center shadow-2xs"
               >
                 <Phone className="w-4 h-4" />
@@ -266,7 +255,7 @@ export default function Navbar() {
                 <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                   <Image
                     src="/logo.png"
-                    alt="Amish Built Cabins"
+                    alt="ModularHome.com"
                     width={140}
                     height={44}
                     className="h-9 w-auto object-contain"
@@ -306,7 +295,7 @@ export default function Navbar() {
               <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm space-y-2">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#17352A] uppercase">
                   <Sparkles className="w-3.5 h-3.5 text-[#B82025]" />
-                  <span>Custom Cabin Estimates</span>
+                  <span>Custom Modular Estimates</span>
                 </div>
                 <p className="text-xs text-[#6B716D] leading-relaxed">
                   Have questions or custom floor plans? Call our engineering specialists directly or request a free quote.
@@ -317,11 +306,11 @@ export default function Navbar() {
             {/* Drawer Bottom Actions */}
             <div className="pt-6 space-y-3 border-t border-[#E5E0D4] mt-6">
               <a
-                href="tel:9403438103"
+                href="tel:+18125954033"
                 className="w-full py-3.5 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm flex items-center justify-center gap-2 transition-colors shadow-xs"
               >
                 <Phone className="w-4 h-4 text-[#C89446]" />
-                <span>Call 94034 38103</span>
+                <span>Call +1-812-595-4033</span>
               </a>
 
               <Link
@@ -334,8 +323,8 @@ export default function Navbar() {
 
               {/* Email in mobile drawer */}
               <div className="text-center pt-2">
-                <a href="mailto:abc@gmail.com" className="text-xs text-[#6B716D] hover:text-[#B82025] transition-colors font-medium">
-                  abc@gmail.com
+                <a href="mailto:support@modularhome.com" className="text-xs text-[#6B716D] hover:text-[#B82025] transition-colors font-medium">
+                  support@modularhome.com
                 </a>
               </div>
             </div>

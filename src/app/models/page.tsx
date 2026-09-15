@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import ModelsCatalog from "./ModelsCatalog";
 
 export const metadata = {
-  title: "Architectural Models & Building Catalog | AMISH BUILT CABINS",
-  description: "Browse our complete catalog of pre-engineered barndominiums, steel buildings, modern cabins, and commercial building kits with transparent pricing and customizable specs.",
+  title: "Floor Plans & Home Catalog | ModularHome.com",
+  description: "Browse our complete catalog of modular homes, prefabs, barndominiums, cabins, ADUs, and custom floor plans with transparent pricing and customizable specs.",
 };
 
 export default function ModelsPage() {

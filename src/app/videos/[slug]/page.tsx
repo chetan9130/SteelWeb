@@ -14,13 +14,13 @@ export async function generateMetadata({ params }: VideoDetailPageProps) {
 
   if (!video) {
     return {
-      title: "Video Not Found | AMISH BUILT CABINS",
+      title: "Video Not Found | ModularHome.com",
     };
   }
 
   return {
-    title: `${video.title} | AMISH BUILT CABINS Video Tour`,
-    description: video.description || `Watch official video tour of ${video.title} by Amish Built Cabins.`,
+    title: `${video.title} | ModularHome.com Video Tour`,
+    description: video.description || `Watch official video tour of ${video.title} by ModularHome.com.`,
     openGraph: {
       title: video.title,
       description: video.description,
@@ -62,10 +62,10 @@ export default async function VideoDetailPage({ params }: VideoDetailPageProps) 
     "contentUrl": video.youtubeUrl,
     "publisher": {
       "@type": "Organization",
-      "name": "Amish Built Cabins, LLC",
+      "name": "ModularHome.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://amishbuiltcabins.com/logo.png"
+        "url": "https://modularhome.com/logo.png"
       }
     }
   };
@@ -127,7 +127,7 @@ export default async function VideoDetailPage({ params }: VideoDetailPageProps) 
                   Video Description & Details
                 </h3>
                 <p className="text-xs sm:text-sm text-[#6B716D] leading-relaxed whitespace-pre-line font-body">
-                  {video.description || "Official video tour showcasing the structural engineering and handcrafted detail of Amish Built Cabins."}
+                  {video.description || "Official video tour showcasing the structural engineering and factory detail of ModularHome.com."}
                 </p>
               </div>
             </div>

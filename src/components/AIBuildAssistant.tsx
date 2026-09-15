@@ -29,12 +29,12 @@ export default function AIBuildAssistant() {
     {
       id: "welcome-1",
       sender: "bot",
-      text: "Welcome to Amish Built Cabins. I am your architectural build advisor. What kind of project are you envisioning?",
+      text: "Welcome to ModularHome.com. I am your architectural housing advisor. What kind of home or building project are you envisioning?",
       timestamp: "Just now",
       actionButtons: [
-        { label: "Cabins & Tiny Homes", query: "Tell me about your cabins and tiny homes" },
+        { label: "Modular & Prefab Homes", query: "Tell me about your modular and prefab homes" },
         { label: "Modern Barndominiums", query: "Tell me about your residential barndominiums" },
-        { label: "Steel Workshops & Sheds", query: "What options do you have for clear-span workshops?" },
+        { label: "Cabins & ADUs", query: "What options do you have for cabins and ADUs?" },
         { label: "Estimate Build Cost", href: "/quote" },
         { label: "Upload Custom Floor Plan", href: "/upload-floor-plan" },
       ],
@@ -56,21 +56,21 @@ export default function AIBuildAssistant() {
 
     if (q.includes("cabin") || q.includes("tiny") || q.includes("snow") || q.includes("mountain") || q.includes("off-grid")) {
       return {
-        reply: "Our signature cabins include 'The Homestead Cabin' (1,200 sq ft, starting at $49,900) and 'The Retreat' luxury tiny home (650 sq ft, starting at $39,900), both engineered with heavy structural steel cores and timber accents.",
+        reply: "Our featured cabins and tiny homes include 'The Homestead Cabin' (1,200 sq ft, starting at $49,900) and 'The Retreat' luxury tiny home (650 sq ft, starting at $39,900), both factory engineered with precision.",
         actionButtons: [
-          { label: "The Homestead Cabin", href: "/buildings/the-homestead-cabin" },
-          { label: "The Retreat Tiny Home", href: "/buildings/the-retreat" },
-          { label: "The Yellowstone Ranch", href: "/buildings/the-yellowstone" },
+          { label: "The Homestead Cabin", href: "/models/the-homestead-cabin" },
+          { label: "The Retreat Tiny Home", href: "/models/the-retreat" },
+          { label: "The Yellowstone Ranch", href: "/models/the-yellowstone" },
         ],
       };
     }
 
     if (q.includes("barndominium") || q.includes("residential") || q.includes("living") || q.includes("house")) {
       return {
-        reply: "Our Barndominiums blend rigid red-iron steel frames with open Scandinavian luxury interiors. Our top residential designs include 'The Lancaster' (2,200 sq ft, starting at $64,500) and 'The Hawthorne' (2,400 sq ft with wraparound porch).",
+        reply: "Our Barndominiums blend steel-reinforced framing with open Scandinavian luxury interiors. Our top residential designs include 'The Lancaster' (2,200 sq ft, starting at $64,500) and 'The Hawthorne' (2,400 sq ft with wraparound porch).",
         actionButtons: [
-          { label: "View The Lancaster", href: "/buildings/the-lancaster" },
-          { label: "View The Hawthorne", href: "/buildings/the-hawthorne" },
+          { label: "View The Lancaster", href: "/models/the-lancaster" },
+          { label: "View The Hawthorne", href: "/models/the-hawthorne" },
           { label: "Calculate Quote", href: "/quote" },
         ],
       };
@@ -78,7 +78,7 @@ export default function AIBuildAssistant() {
 
     if (q.includes("quote") || q.includes("cost") || q.includes("price") || q.includes("estimate") || q.includes("sq ft")) {
       return {
-        reply: "Steel building kits typically range from $25 to $45 per sq ft for the engineered shell, while fully finished luxury barndominiums range from $120 to $180 per sq ft. You can calculate a customized breakdown using our interactive tool:",
+        reply: "Modular home packages typically range from $25 to $45 per sq ft for factory-engineered components, with finished home packages ranging from $120 to $180 per sq ft. You can calculate a customized breakdown using our interactive tool:",
         actionButtons: [
           { label: "Launch Instant Quote Tool →", href: "/quote" },
           { label: "Submit Floor Plan For Exact Bids", href: "/upload-floor-plan" },
@@ -88,30 +88,20 @@ export default function AIBuildAssistant() {
 
     if (q.includes("workshop") || q.includes("commercial") || q.includes("shop") || q.includes("storage") || q.includes("crane") || q.includes("shed")) {
       return {
-        reply: "For workshops, sheds, and commercial storage, take a look at 'The Timberline Workshop' (3,000 sq ft clear-span) and 'The Artisan Shed' (480 sq ft versatile studio kit).",
+        reply: "For workshops, commercial space, and multi-purpose buildings, take a look at 'The Timberline Workshop' (3,000 sq ft clear-span) and 'The Artisan Shed' (480 sq ft versatile studio kit).",
         actionButtons: [
-          { label: "Explore The Timberline", href: "/buildings/the-timberline-workshop" },
-          { label: "Explore The Artisan Shed", href: "/buildings/the-artisan-shed" },
-        ],
-      };
-    }
-
-    if (q.includes("wood") || q.includes("steel vs") || q.includes("termite") || q.includes("fire")) {
-      return {
-        reply: "Commercial steel structures offer non-combustible Class A fire resistance, zero risk of wood rot or termites, 40-50 year structural warranties, and allow clear-span designs up to 100 feet without load-bearing interior walls.",
-        actionButtons: [
-          { label: "Read Why Steel Guide", href: "/about" },
-          { label: "Explore Buildings", href: "/buildings" },
+          { label: "Explore The Timberline", href: "/models/the-timberline-workshop" },
+          { label: "Explore The Artisan Shed", href: "/models/the-artisan-shed" },
         ],
       };
     }
 
     return {
-      reply: "Thank you for reaching out. We engineer and manufacture steel structures from 650 sq ft cabins to 5,000+ sq ft custom estates. Would you like to explore existing models or build a custom quote?",
+      reply: "Thank you for reaching out to ModularHome.com. We offer factory-built housing solutions from 650 sq ft cabins to 5,000+ sq ft custom estates. Would you like to explore existing models or build a custom quote?",
       actionButtons: [
-        { label: "Browse All Buildings", href: "/buildings" },
-        { label: "Build a Quote", href: "/quote" },
-        { label: "Contact an Engineer", href: "/contact" },
+        { label: "Browse All Models", href: "/models" },
+        { label: "Request a Quote", href: "/quote" },
+        { label: "Contact Us", href: "/contact" },
       ],
     };
   };
@@ -150,7 +140,7 @@ export default function AIBuildAssistant() {
       {/* Floating Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Open AI Build Assistant"
+        aria-label="Open AI Housing Assistant"
         className={`fixed bottom-6 right-6 z-40 p-3.5 rounded-full shadow-2xl transition-all duration-300 flex items-center gap-2.5 ${
           isOpen
             ? "bg-[#17352A] text-white rotate-90"
@@ -163,7 +153,7 @@ export default function AIBuildAssistant() {
           <>
             <MessageSquare className="w-5 h-5" />
             <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline-block pr-1">
-              Build Advisor
+              Housing Advisor
             </span>
           </>
         )}
@@ -178,7 +168,7 @@ export default function AIBuildAssistant() {
               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white/20 p-0.5 shrink-0 shadow-xs">
                 <Image
                   src="/logo.png"
-                  alt="Amish Built Cabins"
+                  alt="ModularHome.com"
                   width={32}
                   height={32}
                   className="w-full h-full object-contain"
@@ -186,11 +176,11 @@ export default function AIBuildAssistant() {
               </div>
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider">
-                  Amish Built Advisor
+                  ModularHome Advisor
                 </div>
                 <div className="text-[10px] text-white/70 flex items-center gap-1.5 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  Online • AI Architecture Advisor
+                  Online • AI Housing Advisor
                 </div>
               </div>
             </div>

@@ -517,7 +517,7 @@ export default function QuoteWizard() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="abc@gmail.com"
+                      placeholder="support@modularhome.com"
                       className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
                     />
                   </div>
@@ -531,7 +531,7 @@ export default function QuoteWizard() {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="94034 38103"
+                      placeholder="+1-812-595-4033"
                       className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
                     />
                   </div>

@@ -190,11 +190,11 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
                 <div className="grid grid-cols-2 gap-3">
                   <a
-                    href="tel:9403438103"
+                    href="tel:+18125954033"
                     className="py-3 bg-white hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#B82025]" />
-                    <span>Call 94034 38103</span>
+                    <span>Call +1-812-595-4033</span>
                   </a>
 
                   <Link
@@ -343,6 +343,87 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                 ))}
               </div>
             </section>
+
+            {/* Construction & Engineering Information */}
+            <section className="space-y-6 pt-8 border-t border-[#E5E0D4]">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+                  Factory Precision
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
+                  Construction & Quality Standards
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
+                  <div className="text-xs uppercase font-bold text-[#17352A]">Climate-Controlled Manufacturing</div>
+                  <p className="text-xs text-[#6B716D] leading-relaxed">
+                    Built in indoor facilities protected from moisture, rain, and UV degradation. Ensures zero warping, tight tolerances, and superior structural integrity.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
+                  <div className="text-xs uppercase font-bold text-[#17352A]">Engineered Building Code Standards</div>
+                  <p className="text-xs text-[#6B716D] leading-relaxed">
+                    Compliant with IRC, IBC, and regional energy code standards. Includes wet-stamped county engineering calculation packets ready for local permitting.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
+                  <div className="text-xs uppercase font-bold text-[#17352A]">High Thermal Envelope</div>
+                  <p className="text-xs text-[#6B716D] leading-relaxed">
+                    High R-value wall and roof insulation options, thermal break barriers, and double-pane Low-E argon insulated windows for low heating & cooling costs.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
+                  <div className="text-xs uppercase font-bold text-[#17352A]">Severe Weather Certification</div>
+                  <p className="text-xs text-[#6B716D] leading-relaxed">
+                    Engineered for high wind zones (up to {model.windRating}) and heavy alpine snow loads (up to {model.snowLoad}). Covered by our {model.warranty}.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* Delivery & Logistics Information */}
+            <section className="space-y-6 pt-8 border-t border-[#E5E0D4]">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+                  Site Logistics
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
+                  Delivery & Site Preparation
+                </h2>
+              </div>
+
+              <div className="p-6 rounded-sm bg-white border border-[#E5E0D4] space-y-4 shadow-xs">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#E5E0D4]">
+                  <div>
+                    <div className="text-sm font-bold text-[#1D2521]">Nationwide Freight Logistics</div>
+                    <div className="text-xs text-[#6B716D]">Transported directly to your build site via specialized low-boy carriers or modular hydraulic trailers.</div>
+                  </div>
+                  <span className="px-3 py-1 bg-[#F7F4EC] border border-[#E5E0D4] text-xs font-bold text-[#B82025] rounded-xs shrink-0">
+                    Lead Time: 4–6 Weeks
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                  <div>
+                    <span className="font-bold text-[#1D2521] block mb-1">1. Access Requirements</span>
+                    <p className="text-[#6B716D] leading-relaxed">14ft overhead clearance along delivery route and clear turn radius for transport trucks.</p>
+                  </div>
+                  <div>
+                    <span className="font-bold text-[#1D2521] block mb-1">2. Foundation Preparation</span>
+                    <p className="text-[#6B716D] leading-relaxed">Monolithic concrete slab, stem wall crawlspace, or reinforced pier runners level within 1/4 inch.</p>
+                  </div>
+                  <div>
+                    <span className="font-bold text-[#1D2521] block mb-1">3. Installation Support</span>
+                    <p className="text-[#6B716D] leading-relaxed">Our logistics advisors assist local crane operators and set crews during delivery day.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
 
           {/* Right Column: Customization Options & Configurator (4 cols) */}
@@ -420,13 +501,39 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                   </span>
                 </div>
 
-                <Link
-                  href="/quote"
-                  className="w-full py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
-                >
-                  <span>Lock In Quote With These Options</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                {/* Main Action CTAs */}
+                <div className="space-y-2 pt-1">
+                  <Link
+                    href="/quote"
+                    className="w-full py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <span>Request a Detailed Quote</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+
+                  <a
+                    href="tel:+18125954033"
+                    className="w-full py-3 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-[#C89446]" />
+                    <span>Call +1-812-595-4033</span>
+                  </a>
+
+                  <Link
+                    href="/contact"
+                    className="w-full py-2.5 bg-white hover:bg-[#F7F4EC] text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors text-center block"
+                  >
+                    Contact Building Advisor
+                  </Link>
+                </div>
+
+                {/* Financing Box */}
+                <div className="p-3 bg-white border border-[#E5E0D4] rounded-sm text-xs text-[#6B716D] space-y-1">
+                  <div className="font-bold text-[#1D2521] uppercase text-[11px]">Financing Available</div>
+                  <p className="text-[11px] leading-relaxed">
+                    Estimated payments from <strong className="text-[#B82025]">${Math.round(totalCalculatedPrice * 0.0065)}/mo</strong> with approved credit.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -451,6 +558,32 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
             </div>
           </div>
         )}
+      </div>
+
+      {/* MOBILE STICKY BOTTOM CTA BAR */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#E5E0D4] p-3 shadow-2xl flex items-center justify-between gap-3">
+        <div>
+          <div className="text-[10px] uppercase font-bold text-[#6B716D] leading-tight">{model.name}</div>
+          <div className="text-base font-black text-[#B82025] font-display leading-tight">
+            {formatPrice(totalCalculatedPrice)}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <a
+            href="tel:+18125954033"
+            className="p-2.5 bg-[#17352A] text-white rounded-sm hover:bg-[#234A3A] transition-colors shrink-0"
+            aria-label="Call +1-812-595-4033"
+          >
+            <Phone className="w-4 h-4 text-[#C89446]" />
+          </a>
+          <Link
+            href="/quote"
+            className="px-4 py-2.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shrink-0 shadow-sm"
+          >
+            Request Quote
+          </Link>
+        </div>
       </div>
 
       {/* Floor Plan Fullscreen Modal */}
