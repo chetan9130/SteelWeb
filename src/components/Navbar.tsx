@@ -166,7 +166,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center group shrink-0">
               <div className="relative h-11 sm:h-14 w-auto flex items-center transition-transform group-hover:scale-105">
                 <Image
-                  src="/logo.jpeg"
+                  src="/logo.png"
                   alt="Amish Built Cabins"
                   width={180}
                   height={56}
@@ -265,7 +265,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between pb-4 border-b border-[#E5E0D4]">
                 <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                   <Image
-                    src="/logo.jpeg"
+                    src="/logo.png"
                     alt="Amish Built Cabins"
                     width={140}
                     height={44}

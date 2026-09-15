@@ -177,7 +177,7 @@ export default function AIBuildAssistant() {
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white/20 p-0.5 shrink-0 shadow-xs">
                 <Image
-                  src="/logo.jpeg"
+                  src="/logo.png"
                   alt="Amish Built Cabins"
                   width={32}
                   height={32}

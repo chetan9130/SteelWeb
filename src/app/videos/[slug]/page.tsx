@@ -65,7 +65,7 @@ export default async function VideoDetailPage({ params }: VideoDetailPageProps) 
       "name": "Amish Built Cabins, LLC",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://amishbuiltcabins.com/logo.jpeg"
+        "url": "https://amishbuiltcabins.com/logo.png"
       }
     }
   };
