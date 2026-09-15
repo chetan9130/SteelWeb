@@ -259,11 +259,11 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Direct:</span>
-                    <a href="tel:9403438103" className="font-bold text-[#C89446] hover:underline">9403438103</a>
+                    <a href="tel:9403438103" className="font-bold text-[#C89446] hover:underline">94034 38103</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Toll-Free:</span>
-                    <a href="tel:9403438103" className="font-semibold text-white hover:underline">9403438103</a>
+                    <a href="tel:9403438103" className="font-semibold text-white hover:underline">94034 38103</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Email:</span>

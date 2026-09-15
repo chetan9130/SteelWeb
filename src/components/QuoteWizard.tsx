@@ -531,7 +531,7 @@ export default function QuoteWizard() {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="9403438103"
+                      placeholder="94034 38103"
                       className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-2.5 text-xs text-[#1D2521] focus:outline-none focus:border-[#B82025] rounded-sm"
                     />
                   </div>

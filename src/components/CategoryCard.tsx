@@ -9,43 +9,44 @@ interface CategoryCardProps {
   image: string;
   count?: number;
   href?: string;
+  cta?: string;
 }
 
-export default function CategoryCard({ id, title, tagline, image, href }: CategoryCardProps) {
-  const targetHref = href || `/models?category=${encodeURIComponent(id)}`;
+export default function CategoryCard({ id, title, tagline, image, href, cta }: CategoryCardProps) {
+  const targetHref = href || `/buildings?category=${encodeURIComponent(id)}`;
+  const ctaText = cta || `View ${title}`;
 
   return (
-    <div className="group relative bg-white border border-[#E5E0D4] rounded-sm overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#17352A]">
-      {/* Large Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F7F4EC]">
+    <div className="group relative bg-white border border-[#E5E0D4] rounded-xs overflow-hidden flex flex-row sm:flex-col transition-all duration-300 hover:shadow-md hover:border-[#17352A]">
+      {/* Image Container */}
+      <div className="relative w-28 xs:w-36 sm:w-full aspect-[4/3] shrink-0 overflow-hidden bg-[#F7F4EC]">
         <Image
           src={image}
           alt={title}
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
+          sizes="(max-width: 640px) 35vw, 25vw"
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
       </div>
 
       {/* Card Content */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between text-left space-y-3 bg-white">
+      <div className="p-3.5 sm:p-5 flex-1 flex flex-col justify-between text-left space-y-2 sm:space-y-3 bg-white">
         <div>
-          <h3 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-[#1D2521] group-hover:text-[#B82025] transition-colors font-display">
+          <h3 className="text-sm sm:text-base md:text-lg font-bold tracking-tight text-[#17352A] group-hover:text-[#B82025] transition-colors font-display">
             {title}
           </h3>
-          <p className="text-xs text-[#6B716D] mt-1 line-clamp-2 leading-relaxed font-body">
+          <p className="text-xs text-[#6B716D] mt-0.5 sm:mt-1 line-clamp-2 leading-snug sm:leading-relaxed font-body">
             {tagline}
           </p>
         </div>
 
-        {/* Red CTA Button */}
-        <div className="pt-2">
+        {/* Red CTA Text Link */}
+        <div className="pt-1">
           <Link
             href={targetHref}
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B82025] group-hover:text-[#8F171C] transition-colors"
+            className="inline-flex items-center gap-1 text-xs font-bold text-[#B82025] hover:text-[#8F171C] transition-colors"
           >
-            <span>View {title}</span>
+            <span>{ctaText}</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </div>

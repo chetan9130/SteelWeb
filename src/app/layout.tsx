@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AIBuildAssistant from "@/components/AIBuildAssistant";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -18,24 +19,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Amish Built Cabins, LLC | Handcrafted Cabins & Modular Housing Solutions",
-  description: "Building a Better Way to Live — One Amish-Built Cabin at a Time. AmishBuiltCabins.com specializes in handcrafted Amish-built cabins, modular homes, barndominiums, and custom housing solutions delivered nationwide.",
+  title: "Amish Built Cabins | Quality Buildings for a Better Tomorrow",
+  description: "Handcrafted with integrity, built to last. From cozy cabins to spacious barndominiums, we deliver quality buildings for your land, your lifestyle, and your future.",
   keywords: [
-    "Amish Built Cabins, LLC",
-    "AmishBuiltCabins.com",
-    "Amish-Built Cabins",
-    "Modular Cabins",
-    "Turnkey Cabins",
-    "Rustic Cabins",
-    "Modular Homes",
-    "Prefab Homes",
-    "Tiny Homes",
+    "Amish Built Cabins",
+    "Cabins",
     "Barndominiums",
-    "Steel Homes",
-    "House Kits",
-    "House Plans",
-    "Backyard Studios ADU",
-    "Scottsburg Indiana"
+    "Sheds & Other Buildings",
+    "Lofted Cabins",
+    "Floor Plans",
+    "Modular Cabins",
+    "Handcrafted Cabins"
   ],
   icons: {
     icon: [
@@ -46,8 +40,8 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   openGraph: {
-    title: "Amish Built Cabins, LLC | Building a Better Way to Live",
-    description: "Specializing in Amish-built and modular housing solutions, combining traditional craftsmanship with modern comfort and design.",
+    title: "Amish Built Cabins | Quality Buildings for a Better Tomorrow",
+    description: "Cabins, Barndominiums. A Simpler Way of Life. Handcrafted with integrity, built to last.",
     type: "website",
   },
 };
@@ -58,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${spaceGrotesk.variable} ${inter.variable} light scroll-smooth`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${manrope.variable} ${inter.variable} light scroll-smooth`}>
       <body className="min-h-screen flex flex-col bg-white text-[#1D2521] antialiased selection:bg-[#B82025] selection:text-white">
         <Navbar />
         <main className="flex-1">

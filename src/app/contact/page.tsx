@@ -67,10 +67,10 @@ export default function ContactPage() {
                   <div className="text-xs uppercase font-bold text-[#6B716D]">Phone Numbers</div>
                   <div className="flex flex-col">
                     <a href="tel:9403438103" className="text-base font-bold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                      Direct: 9403438103
+                      Direct: 94034 38103
                     </a>
                     <a href="tel:9403438103" className="text-sm font-semibold text-[#1D2521] hover:text-[#B82025] transition-colors">
-                      Toll-Free: 9403438103
+                      Toll-Free: 94034 38103
                     </a>
                   </div>
                 </div>

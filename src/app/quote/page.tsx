@@ -49,11 +49,11 @@ export default function QuotePage() {
         <div className="mt-16 text-center text-xs text-[#6B716D]">
           Prefer to speak directly with an estimator? Call us at{" "}
           <a href="tel:9403438103" className="text-[#B82025] font-bold hover:underline">
-            9403438103
+            94034 38103
           </a>{" "}
           or Toll-Free at{" "}
           <a href="tel:9403438103" className="text-[#B82025] font-bold hover:underline">
-            9403438103
+            94034 38103
           </a>{" "}
           (Monday–Friday 7am–6pm).
         </div>

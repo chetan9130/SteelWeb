@@ -1,0 +1,23 @@
+import { NextRequest, NextResponse } from "next/server";
+import { getPublishedVideos } from "@/lib/videoStore";
+
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const category = searchParams.get("category") || undefined;
+    const search = searchParams.get("search") || undefined;
+
+    const videos = getPublishedVideos({ category, search });
+
+    return NextResponse.json({
+      success: true,
+      count: videos.length,
+      videos,
+    });
+  } catch (error: any) {
+    return NextResponse.json(
+      { success: false, error: error.message || "Failed to fetch videos" },
+      { status: 500 }
+    );
+  }
+}

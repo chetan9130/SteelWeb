@@ -1,62 +1,104 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Play, Clock, Eye } from "lucide-react";
-import { VIDEOS_DATA, VIDEO_CATEGORIES, VideoItem } from "@/data/videos";
+import Link from "next/link";
+import { Play, Clock, Eye, Search, Filter } from "lucide-react";
+import { VIDEOS_DATA, VIDEO_CATEGORIES } from "@/data/videos";
+import { VideoItem } from "@/types/video";
 import VideoCard from "@/components/VideoCard";
 import VideoModal from "@/components/VideoModal";
 
 export default function VideosClient() {
+  const [videos, setVideos] = useState<VideoItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const filteredVideos = VIDEOS_DATA.filter((v) =>
-    selectedCategory === "All" ? true : v.category === selectedCategory
-  );
+  useEffect(() => {
+    async function loadSyncedVideos() {
+      setIsLoading(true);
+      try {
+        const res = await fetch("/api/videos");
+        const data = await res.json();
+        if (data.success && Array.isArray(data.videos) && data.videos.length > 0) {
+          setVideos(data.videos);
+        } else {
+          // Fallback to initial seed data
+          setVideos(VIDEOS_DATA as unknown as VideoItem[]);
+        }
+      } catch (err) {
+        console.error("Failed to fetch synced videos, using fallback:", err);
+        setVideos(VIDEOS_DATA as unknown as VideoItem[]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadSyncedVideos();
+  }, []);
 
-  const featuredVideo = VIDEOS_DATA[0];
+  const filteredVideos = videos.filter((v) => {
+    const matchesCat = selectedCategory === "All" || v.category.toLowerCase() === selectedCategory.toLowerCase();
+    const matchesSearch = searchQuery === "" || v.title.toLowerCase().includes(searchQuery.toLowerCase()) || v.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCat && matchesSearch;
+  });
+
+  const featuredVideo = videos[0] || VIDEOS_DATA[0];
 
   return (
     <div className="min-h-screen bg-white pt-28 pb-28 text-[#1D2521]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-[#B82025] mb-3">
             <span className="w-2 h-2 rounded-full bg-[#B82025]"></span>
-            <span>Cinematic Film Gallery</span>
+            <span>Official YouTube Channel Sync</span>
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-[#1D2521] font-display leading-[0.95]">
             See Our Buildings <br />
             <span className="text-[#B82025]">Come To Life.</span>
           </h1>
           <p className="mt-4 text-sm sm:text-base text-[#6B716D] leading-relaxed font-body">
-            Watch complete architectural walkthroughs, steel frame erection time-lapses, luxury interior detailing, and genuine homeowner build stories.
+            Watch complete architectural walkthroughs, steel frame erection time-lapses, luxury interior detailing, and genuine homeowner build stories automatically synced from our YouTube channel.
           </p>
 
-          {/* Category Pills */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            {VIDEO_CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all duration-200 cursor-pointer ${
-                  selectedCategory === cat
-                    ? "bg-[#B82025] text-white shadow-md"
-                    : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] shadow-xs"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Search & Category Filtering Bar */}
+          <div className="mt-8 space-y-4">
+            <div className="relative max-w-md mx-auto">
+              <Search className="w-4 h-4 text-[#6B716D] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search videos by keyword..."
+                className="w-full bg-[#F7F4EC] border border-[#E5E0D4] pl-10 pr-4 py-2.5 text-xs text-[#1D2521] rounded-sm focus:outline-none focus:border-[#B82025] shadow-xs"
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {["All", ...VIDEO_CATEGORIES.filter((c) => c !== "All")].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all duration-200 cursor-pointer ${
+                    selectedCategory === cat
+                      ? "bg-[#B82025] text-white shadow-md"
+                      : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] shadow-xs"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Featured Video Spotlight */}
-        {selectedCategory === "All" && featuredVideo && (
+        {selectedCategory === "All" && searchQuery === "" && featuredVideo && (
           <div className="mb-16">
             <div
-              onClick={() => setActiveVideo(featuredVideo)}
+              onClick={() => setActiveVideo(featuredVideo as unknown as VideoItem)}
               className="group cursor-pointer relative aspect-[21/9] w-full rounded-sm overflow-hidden bg-black border border-[#E5E0D4] hover:border-[#B82025] transition-all duration-300 shadow-xl"
             >
               <Image
@@ -101,19 +143,38 @@ export default function VideosClient() {
         )}
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredVideos.map((video) => (
-            <VideoCard
-              key={video.id}
-              video={video}
-              onPlay={(v) => setActiveVideo(v)}
-            />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="p-16 text-center text-xs text-[#6B716D]">
+            Loading video gallery...
+          </div>
+        ) : filteredVideos.length === 0 ? (
+          <div className="p-16 text-center text-xs text-[#6B716D] space-y-2">
+            <div>No videos matched your filter or search query.</div>
+            <button
+              onClick={() => {
+                setSelectedCategory("All");
+                setSearchQuery("");
+              }}
+              className="text-[#B82025] font-bold hover:underline"
+            >
+              Reset Filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredVideos.map((video) => (
+              <VideoCard
+                key={video.id}
+                video={video as any}
+                onPlay={(v) => setActiveVideo(v as any)}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Video Modal Player */}
-      <VideoModal video={activeVideo} onClose={() => setActiveVideo(null)} />
+      <VideoModal video={activeVideo as any} onClose={() => setActiveVideo(null)} />
     </div>
   );
 }

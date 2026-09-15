@@ -15,7 +15,7 @@
   --color-copper: #B82025;
   --color-copper-hover: #8F171C;
 
-  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-display: var(--font-manrope), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 }
 
@@ -44,7 +44,7 @@ body {
 
 /* Typography styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-space-grotesk), -apple-system, sans-serif;
+  font-family: var(--font-manrope), -apple-system, sans-serif;
   letter-spacing: -0.02em;
 }
 

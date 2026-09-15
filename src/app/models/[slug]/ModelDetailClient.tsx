@@ -194,7 +194,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                     className="py-3 bg-white hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#B82025]" />
-                    <span>Call 9403438103</span>
+                    <span>Call 94034 38103</span>
                   </a>
 
                   <Link
