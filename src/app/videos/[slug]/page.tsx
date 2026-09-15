@@ -65,7 +65,7 @@ export default async function VideoDetailPage({ params }: VideoDetailPageProps) 
       "name": "ModularHome.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://modularhome.com/logo.png"
+        "url": "https://modularhome.com/newlogo.png"
       }
     }
   };

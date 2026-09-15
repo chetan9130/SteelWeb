@@ -27,7 +27,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center group shrink-0">
               <div className="relative h-10 sm:h-12 w-auto flex items-center transition-transform group-hover:scale-105">
                 <Image
-                  src="/logo.png"
+                  src="/newlogo.png"
                   alt="ModularHome.com"
                   width={160}
                   height={50}

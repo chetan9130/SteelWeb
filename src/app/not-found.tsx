@@ -8,7 +8,7 @@ export default function NotFound() {
       <div className="max-w-md mx-auto space-y-6 flex flex-col items-center">
         <Link href="/" className="inline-block transition-transform hover:scale-105 mb-2">
           <Image
-            src="/logo.png"
+            src="/newlogo.png"
             alt="ModularHome.com"
             width={180}
             height={56}
