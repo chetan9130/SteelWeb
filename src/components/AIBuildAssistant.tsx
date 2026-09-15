@@ -165,13 +165,13 @@ export default function AIBuildAssistant() {
           {/* Header */}
           <div className="bg-[#17352A] text-white px-4 py-3.5 border-b border-[#234A3A] flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white/20 p-0.5 shrink-0 shadow-xs">
+              <div className="h-8 px-2 rounded-xs bg-white flex items-center justify-center overflow-hidden border border-white/20 shrink-0 shadow-xs">
                 <Image
                   src="/logo.png"
                   alt="ModularHome.com"
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-contain"
+                  width={80}
+                  height={28}
+                  className="h-6 w-auto object-contain"
                 />
               </div>
               <div>
